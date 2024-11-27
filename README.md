@@ -1,14 +1,30 @@
-# Project
+# Microsoft For Beginners Template
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+> [!IMPORTANT]  
+> This README is meant as guidance for **users** of this template. When you instantiate the template to start a new project, please replace this README.md with the version found in `docs/README.md` and fill that in to reflect your topic instead. If you are retrofitting an existing repository, then simply read the guidance here to understand how to apply these tactics (and ensure your repository is connected into the larger inititaive)
 
-As the maintainer of this project, please make a few updates:
+This repository provides an actionable templat for delivering open-source curriculum or providing repo-hosted workshops in conjunction with Azure Samples projects, by taking advantage of the built-in GitHub Pages hosting in the source repository. 
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+1. The projects will use [Mkdocs Material](https://github.com/squidfunk/mkdocs-material) for the documentation setup
+2. The projects will use [GitHub Pages](https://pages.github.com/) for hosted websites
+3. The projects will be registered with Microsoft & kept compliant
+
+## Personas
+
+Each project will adhere to a consistent format for documentation to enhacne the learning experience for AI engineers and beginners alike. We expect three kinds of personas to use these projects, and want to make sure experience is optimized for all
+
+1. **Beginner** - new to the topic - interested in concepts to code.
+2. **Developer** - comfortable with code - interested in tools & techniques.
+3. **AI Engineer** - building intelligent apps - interested in E2E solutions.
+
+## Calls To Action
+
+To complement the journey, we ask each template user to add these three calls to action to their README.md
+
+1. [**Bookmark the Learn Collection** 📚](https://learn.microsoft.com/en-us/collections/7d2wswpx0d02qj) - and use it to discover other resources
+1. [**Join the AI Discord**](https://discord.gg/zxKYvhSnVp) 💬 - connect with experts & builders online around AI!
+1. [**Join the Global AI Community**](https://globalai.community/) - connect with experts & builders in your region!
+
 
 ## Contributing
 
