@@ -12,6 +12,29 @@ This repository provides a template for building workshops or open-source curric
 
     Once completed, this repository will be converted into a template with two base projects, one for each "type" of content delivery. Simply instantiate the template and refactor the identified folders to reflect _your_ instructions and code samples.
 
+
+??? info "Useful Resources: click to expand"
+
+    This is a subset of documentation links that may be useful for creators to customize their docs:
+    
+    1. [Blog Support](https://squidfunk.github.io/mkdocs-material/plugins/blog/) - via plugin
+    1. [Internattionalization](https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/?h=langu) - custom translations
+    1. [Search Support](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/?h=searc) - built-in plugin
+    1. [Admonitions](https://squidfunk.github.io/mkdocs-material/reference/admonitions/?h=admoni) - for highlighting actions
+    1. [Code Blocks](https://squidfunk.github.io/mkdocs-material/reference/code-blocks/) - for inline snippets
+
+
+!!! quote "Why Use Mkdocs Material?"
+
+    The website is built with [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) to benefit from the following features:
+
+    1. Python package - single dependency in `requirements.txt`
+    1. Easy configuration - single `mkdocs.yml` file
+    1. Rich extensions - explore plugins and themes
+    1. Built-in search - easy for learners to explore
+    1. Built-in cookie consent - just add analytics tag
+    1. Familiar content structure - markdown and folders
+
 ## 1. Sample: RAG Workshop
 
 This section contains the step-by-step instructions format that is suitable for delivering a workshop in events like the Microsoft AI Tour. 
