@@ -24,6 +24,6 @@ azure-ai-evaluation[remote]
 fastapi
 fastapi[standard]
 requests
-gunicorn==21.2.0
+gunicorn==22.0.0
 
 # ------------------ 3. For AGENTS Curricula
