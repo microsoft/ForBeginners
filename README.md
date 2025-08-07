@@ -1,4 +1,4 @@
-# Microsoft For Beginners Template
+# For Beginners: The Demo Template
 
 > [!IMPORTANT]  
 > This README is meant as guidance for **users** of this template. When you instantiate the template to start a new project, please replace this README.md with the version found in `docs/README.md` and fill that in to reflect your topic instead. If you are retrofitting an existing repository, then simply read the guidance here to understand how to apply these tactics (and ensure your repository is connected into the larger inititaive)
@@ -7,7 +7,20 @@ This repository provides an actionable templat for delivering open-source curric
 
 1. The projects will use [Mkdocs Material](https://github.com/squidfunk/mkdocs-material) for the documentation setup
 2. The projects will use [GitHub Pages](https://pages.github.com/) for hosted websites
-3. The projects will be registered with Microsoft & kept compliant
+3. The projects will use [AI Quickstart Templates](https://ai.azure.com/templates) for infrastructure setup
+
+
+## Azure AI Foundry
+
+This template is ideally suited to "For Beginners" projects that have labs that require Azure AI Foundry usage. This template provides learners with the guidance for setting up, configuring, and customizing various aspects of the default Azure AI Foundry quickstart template for AI Agents.
+
+This decouples infrastructure setup from curriculum usage, allowing projects like "Models For Beginners" to focus on lessons and labs that simply expect environment variables set to a pre-deployed infra. This has two benefits:
+
+1. Learners can manually provision infra using Azure AI Foundry portal, CLI or SDK, working through this per lesson, or per curricula.
+1. Learners can use this template to provision infra with azd (using our built-in guidance and extensions) for multiple lessons (or curricula) at one shot.
+
+**The First Testbed for this will be the upcoming Models For Beginners curriculum with emphasis on using the new Foundry Architecture**.
+
 
 ## Personas
 
