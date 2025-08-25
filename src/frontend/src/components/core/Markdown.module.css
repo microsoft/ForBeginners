@@ -1,0 +1,122 @@
+.markdown {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--colorNeutralForeground1);
+}
+
+.markdown p {
+  margin-bottom: 16px;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.markdown h1 {
+  font-size: 2em;
+}
+
+.markdown h2 {
+  font-size: 1.5em;
+}
+
+.markdown h3 {
+  font-size: 1.25em;
+}
+
+.markdown ul,
+.markdown ol {
+  padding-left: 2em;
+  margin-bottom: 16px;
+}
+
+.markdown li {
+  margin-bottom: 4px;
+}
+
+.markdown blockquote {
+  padding: 0 1em;
+  color: var(--colorNeutralForeground2);
+  border-left: 4px solid var(--colorNeutralStroke2);
+  margin: 0 0 16px;
+}
+
+.link {
+  color: var(--colorBrandForeground1);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.inlineCode {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  font-family: monospace;
+}
+
+.codeBlock {
+  margin: 16px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--colorNeutralStroke2);
+}
+
+.codeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: var(--colorNeutralBackground3);
+  border-bottom: 1px solid var(--colorNeutralStroke2);
+}
+
+.alignRight {
+  margin-left: auto;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  background-color: var(--colorNeutralBackground4);
+}
+
+.markdown table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.markdown th,
+.markdown td {
+  padding: 8px 12px;
+  border: 1px solid var(--colorNeutralStroke2);
+}
+
+.markdown th {
+  background-color: var(--colorNeutralBackground3);
+  text-align: left;
+}
+
+.markdown tr:nth-child(even) {
+  background-color: var(--colorNeutralBackground2);
+}
