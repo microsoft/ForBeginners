@@ -1,0 +1,86 @@
+.userMessageContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: var(--colorNeutralBackground2);
+  border-radius: 8px;
+}
+
+.userMessageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--colorBrandBackground);
+  color: var(--colorNeutralForegroundOnBrand);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: var(--colorNeutralForeground3);
+}
+
+.messageActions {
+  display: flex;
+}
+
+.messageContent {
+  width: 100%;
+}
+
+.attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.attachment {
+  display: flex;
+  align-items: center;
+  background-color: var(--colorNeutralBackground3);
+  padding: 6px 10px;
+  border-radius: 4px;
+  gap: 8px;
+}
+
+.attachmentName {
+  font-size: 12px;
+  color: var(--colorBrandForeground1);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.removeButton {
+  background: none;
+  border: none;
+  color: var(--colorNeutralForeground3);
+  cursor: pointer;
+  padding: 0;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeButton:hover {
+  color: var(--colorNeutralForeground1);
+}
