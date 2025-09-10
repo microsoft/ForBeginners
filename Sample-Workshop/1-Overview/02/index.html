@@ -1,0 +1,1706 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Template for building workshops and open-source curricula to support AI Engineers" name="description"/>
+<meta content="Nitya Narasimhan" name="author"/>
+<link href="https://microsoft.github.io/ForBeginners/Sample-Workshop/1-Overview/02/" rel="canonical"/>
+<link href="../01/" rel="prev"/>
+<link href="../03/" rel="next"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.19" name="generator"/>
+<title>1.3 Application Data - AI Engineering For Beginners</title>
+<link href="../../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2DGCMX1RX8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2DGCMX1RX8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2DGCMX1RX8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+<script src="../../../js/unpkg.com/d3@7.js" type="text/javascript"></script><script src="../../../js/unpkg.com/markmap-lib@0.18.js" type="text/javascript"></script><script src="../../../js/unpkg.com/markmap-view@0.18.js" type="text/javascript"></script><style type="text/css">div.mkdocs-markmap {
+    width: 100%;
+    min-height: 1em;
+    border: 1px solid grey;
+}
+.mkdocs-markmap > svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+</style></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#13-application-data">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="AI Engineering For Beginners" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="AI Engineering For Beginners">
+<img alt="logo" src="../../../img/logo.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            AI Engineering For Beginners
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              1.3 Application Data
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="black" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 2c-1.82 0-3.53.5-5 1.35C8 5.08 10 8.3 10 12s-2 6.92-5 8.65C6.47 21.5 8.18 22 10 22a10 10 0 0 0 10-10A10 10 0 0 0 10 2"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="pink" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="amber" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/microsoft/ForBeginners" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4" fill="currentColor"></path></svg>
+</div>
+<div class="md-source__repository">
+    microsoft/ForBeginners
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+  
+    
+  
+  Intro For Creators
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/01/">
+          
+  
+  
+    
+  
+  Sample Curriculum
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../00/">
+          
+  
+  
+    
+  
+  Sample Workshop
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="AI Engineering For Beginners" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="AI Engineering For Beginners">
+<img alt="logo" src="../../../img/logo.svg"/>
+</a>
+    AI Engineering For Beginners
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/microsoft/ForBeginners" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4" fill="currentColor"></path></svg>
+</div>
+<div class="md-source__repository">
+    microsoft/ForBeginners
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    Intro For Creators
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Sample Curriculum
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Sample Curriculum
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    01 Agent Scenarios
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            01 Agent Scenarios
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/01-Agent-Scenarios/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    02 Agent Frameworks
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            02 Agent Frameworks
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/02-Agent-Frameworks/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    03 Design Patterns
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            03 Design Patterns
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/03-Design-Patterns/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    04 Tool Use
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            04 Tool Use
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/04-Tool-Use/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    05 Agentic RAG
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            05 Agentic RAG
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/05-Agentic-RAG/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    06 Trustworthy Agents
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+            06 Trustworthy Agents
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/06-Trustworthy-Agents/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+<span class="md-ellipsis">
+    07 Planning Pattern
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_7">
+<span class="md-nav__icon md-icon"></span>
+            07 Planning Pattern
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/07-Planning-Pattern/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+<span class="md-ellipsis">
+    08 MultiAgent Pattern
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_8">
+<span class="md-nav__icon md-icon"></span>
+            08 MultiAgent Pattern
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/08-MultiAgent-Pattern/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+<span class="md-ellipsis">
+    09 MetaCognition Pattern
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_9">
+<span class="md-nav__icon md-icon"></span>
+            09 MetaCognition Pattern
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/09-MetaCognition-Pattern/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+<span class="md-ellipsis">
+    10 Agents In Production
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_10">
+<span class="md-nav__icon md-icon"></span>
+            10 Agents In Production
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/01/">
+<span class="md-ellipsis">
+    01 | Introduction
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/02/">
+<span class="md-ellipsis">
+    02 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/03/">
+<span class="md-ellipsis">
+    03 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/04/">
+<span class="md-ellipsis">
+    04 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/05/">
+<span class="md-ellipsis">
+    05 | Lesson
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/06/">
+<span class="md-ellipsis">
+    06 | Exercise
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../Sample-Curriculum/10-Agents-In-Production/07/">
+<span class="md-ellipsis">
+    07 | Summary
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-ellipsis">
+    Sample Workshop
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Sample Workshop
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    1 Overview
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            1 Overview
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../00/">
+<span class="md-ellipsis">
+    1.1 Learning Objectives
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../01/">
+<span class="md-ellipsis">
+    1.2 Application Scenario
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    1.3 Application Data
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    1.3 Application Data
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-customer-info">
+<span class="md-ellipsis">
+      1. Customer Info
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-product-manual-info">
+<span class="md-ellipsis">
+      2. Product Manual Info
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-product-catalog-info">
+<span class="md-ellipsis">
+      3. Product Catalog Info
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../03/">
+<span class="md-ellipsis">
+    1.4 RAG Chat Tutorial
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    2 Setup
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            2 Setup
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/01/">
+<span class="md-ellipsis">
+    2.1 Create AI Project
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/02/">
+<span class="md-ellipsis">
+    2.2 Deploy AI Models
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/03/">
+<span class="md-ellipsis">
+    2.3 Add Azure AI Search
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/04/">
+<span class="md-ellipsis">
+    2.4 Add App Insights
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/05/">
+<span class="md-ellipsis">
+    2.5 Setup Local Environment
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/06/">
+<span class="md-ellipsis">
+    2.6 Setup Project Structure
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../2-Setup/07/">
+<span class="md-ellipsis">
+    2.7 Configure Env Variables
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    3 Ideate
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            3 Ideate
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/01/">
+<span class="md-ellipsis">
+    3.1 Add Application Data
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/02/">
+<span class="md-ellipsis">
+    3.2 Create Search Index
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/03/">
+<span class="md-ellipsis">
+    3.3 Retrieve Related Products
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/04/">
+<span class="md-ellipsis">
+    3.4 Understand Intent Mapping
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/05/">
+<span class="md-ellipsis">
+    3.5 Create Augmented Query
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/06/">
+<span class="md-ellipsis">
+    3.6 Design Grounded Prompt
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3-Ideate/07/">
+<span class="md-ellipsis">
+    3.7 Test with Observability
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    4 Evaluate
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            4 Evaluate
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../4-Evaluate/01/">
+<span class="md-ellipsis">
+    4.1 Create Evaluation Dataset
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../4-Evaluate/02/">
+<span class="md-ellipsis">
+    4.2 Create Evaluation Script
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../4-Evaluate/03/">
+<span class="md-ellipsis">
+    4.3 Configure Evaluation Model
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../4-Evaluate/04/">
+<span class="md-ellipsis">
+    4.4 Run Evaluation Script
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../4-Evaluate/05/">
+<span class="md-ellipsis">
+    4.5 View Results Locally
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../4-Evaluate/06/">
+<span class="md-ellipsis">
+    4.6 View Results In Portal
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    5 Evolve
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+            5 Evolve
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../5-Evolve/01/">
+<span class="md-ellipsis">
+    5.1 Recap: Build A Copilot
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../5-Evolve/02/">
+<span class="md-ellipsis">
+    5.2 Refactor: Make it Better
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../6-Cleanup/">
+<span class="md-ellipsis">
+    6 Cleanup
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            6 Cleanup
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-customer-info">
+<span class="md-ellipsis">
+      1. Customer Info
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-product-manual-info">
+<span class="md-ellipsis">
+      2. Product Manual Info
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-product-catalog-info">
+<span class="md-ellipsis">
+      3. Product Catalog Info
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="13-application-data">1.3 Application Data<a class="headerlink" href="#13-application-data" title="Permanent link">¶</a></h1>
+<p>The Retrieval Augmented Generation (RAG) design pattern allows us to <em>customize the AI</em> by enhancing the user prompt with <em>dynamically retrieved knowledge</em> that grounds the responses in the provided context.
+Let's understand the shape of the data available to us - and think proactively about how you could bring <em>your data</em> into this mix.</p>
+<hr/>
+<h3 id="1-customer-info">1. Customer Info<a class="headerlink" href="#1-customer-info" title="Permanent link">¶</a></h3>
+<p>This record represents <em>a single customer</em>, providing their profile information ("id", name, contact info) and their purchase history ("orders"). <em>This JSON data may be stored in a noSQL datbase like Azure CosmosDB and retrieved dynamically by the chat AI</em>.</p>
+<details class="quote">
+<summary>SAMPLE DATA (JSON) - <em>click to expand</em></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Smith"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"johnsmith@example.com"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-123-4567"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123 Main St,  Anytown USA, 12345"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"membership"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Base"</span><span class="p">,</span>
+
+<span class="w">    </span><span class="nt">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">700.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2/10/2023"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alpine Explorer Tent"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="w"> </span><span class="mf">350.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tents"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AlpineGear"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Welcome to the joy of camping with the Alpine Explorer Tent! This robust, 8-person, 3-season marvel is from the responsible hands of the AlpineGear brand. Promising an enviable setup that is as straightforward as counting sheep, your camping experience is transformed into a breezy pastime. Looking for privacy? The detachable divider provides separate spaces at a moment's notice. Love a tent that breathes? The numerous mesh windows and adjustable vents fend off any condensation dragon trying to dampen your adventure fun. The waterproof assurance keeps you worry-free during unexpected rain dances. With a built-in gear loft to stash away your outdoor essentials, the Alpine Explorer Tent emerges as a smooth balance of privacy, comfort, and convenience. Simply put, this tent isn't just a shelter - it's your second home in the heart of nature! Whether you're a seasoned camper or a nature-loving novice, this tent makes exploring the outdoors a joyous journey."</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">500.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/5/2023"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TrailMaster X4 Tent"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="w"> </span><span class="mf">250.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tents"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OutdoorLiving"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unveiling the TrailMaster X4 Tent from OutdoorLiving, your home away from home for your next camping adventure. Crafted from durable polyester, this tent boasts a spacious interior perfect for four occupants. It ensures your dryness under drizzly skies thanks to its water-resistant construction, and the accompanying rainfly adds an extra layer of weather protection. It offers refreshing airflow and bug defence, courtesy of its mesh panels. Accessibility is not an issue with its multiple doors and interior pockets that keep small items tidy. Reflective guy lines grant better visibility at night, and the freestanding design simplifies setup and relocation. With the included carry bag, transporting this convenient abode becomes a breeze. Be it an overnight getaway or a week-long nature escapade, the TrailMaster X4 Tent provides comfort, convenience, and concord with the great outdoors. Comes with a two-year limited warranty to ensure customer satisfaction."</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"productId"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1/25/2023"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BaseCamp Folding Table"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"unitprice"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Camping Tables"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CampBuddy"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CampBuddy's BaseCamp Folding Table is an adventurer's best friend. Lightweight yet powerful, the table is a testament to fun-meets-function and will elevate any outing to new heights. Crafted from resilient, rust-resistant aluminum, the table boasts a generously sized 48 x 24 inches tabletop, perfect for meal times, games and more. The foldable design is a godsend for on-the-go explorers. Adjustable legs rise to the occasion to conquer uneven terrains and offer height versatility, while the built-in handle simplifies transportation. Additional features like non-slip feet, integrated cup holders and mesh pockets add a pinch of finesse. Quick to set up without the need for extra tools, this table is a silent yet indispensable sidekick during camping, picnics, and other outdoor events. Don't miss out on the opportunity to take your outdoor experiences to a new level with the BaseCamp Folding Table. Get yours today and embark on new adventures tomorrow!"</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<hr/>
+<h3 id="2-product-manual-info">2. Product Manual Info<a class="headerlink" href="#2-product-manual-info" title="Permanent link">¶</a></h3>
+<p>This record represents a <em>single product</em> in the retailer's catalog with extensive text (formatted as Markdown) covering information like brand, category, features, technical specs, user guide, cautions, warranty information, return policy, reviews, FAQ. <em>This information may be used for building the Contoso Web UI, and potentially for grounding responses related to richer QA later</em>. </p>
+<p><strong>The product info has been rendered as a Markmap for visual clarity</strong>. Simply zoom in/out or pan in/out to explore the content. You can click on any node (circle) to expand/collapse its sub-tree. You may need to refresh or reload page to re-render the tree.</p>
+<details class="quote">
+<summary>SAMPLE RECORD (Markdown) - <em>click to expand</em></summary>
+<div class="language-markmap mkdocs-markmap"><markmap-data encoding="base64" hidden="true">IyBJbmZvcm1hdGlvbiBhYm91dCBwcm9kdWN0IGl0ZW1fbnVtYmVyOiAxClRyYWlsTWFzdGVyIFg0IFRlbnQsIHByaWNlICQyNTAsCgojIyBCcmFuZApPdXRkb29yTGl2aW5nCgojIyBDYXRlZ29yeQpUZW50cwoKIyMgRmVhdHVyZXMKLSBQb2x5ZXN0ZXIgbWF0ZXJpYWwgZm9yIGR1cmFiaWxpdHkKLSBTcGFjaW91cyBpbnRlcmlvciB0byBhY2NvbW1vZGF0ZSBtdWx0aXBsZSBwZW9wbGUKLSBFYXN5IHNldHVwIHdpdGggaW5jbHVkZWQgaW5zdHJ1Y3Rpb25zCi0gV2F0ZXItcmVzaXN0YW50IGNvbnN0cnVjdGlvbiB0byB3aXRoc3RhbmQgbGlnaHQgcmFpbgotIE1lc2ggcGFuZWxzIGZvciB2ZW50aWxhdGlvbiBhbmQgaW5zZWN0IHByb3RlY3Rpb24KLSBSYWluZmx5IGluY2x1ZGVkIGZvciBhZGRlZCB3ZWF0aGVyIHByb3RlY3Rpb24KLSBNdWx0aXBsZSBkb29ycyBmb3IgY29udmVuaWVudCBlbnRyeSBhbmQgZXhpdAotIEludGVyaW9yIHBvY2tldHMgZm9yIG9yZ2FuaXppbmcgc21hbGwgaXRlbXMKLSBSZWZsZWN0aXZlIGd1eSBsaW5lcyBmb3IgaW1wcm92ZWQgdmlzaWJpbGl0eSBhdCBuaWdodAotIEZyZWVzdGFuZGluZyBkZXNpZ24gZm9yIGVhc3kgc2V0dXAgYW5kIHJlbG9jYXRpb24KLSBDYXJyeSBiYWcgaW5jbHVkZWQgZm9yIGNvbnZlbmllbnQgc3RvcmFnZSBhbmQgdHJhbnNwb3J0YXRpb24KCiMjIFRlY2huaWNhbCBTcGVjcwoqKkJlc3QgVXNlKio6IENhbXBpbmcgIAoqKkNhcGFjaXR5Kio6IDQtcGVyc29uICAKKipTZWFzb24gUmF0aW5nKio6IDMtc2Vhc29uICAKKipTZXR1cCoqOiBGcmVlc3RhbmRpbmcgIAoqKk1hdGVyaWFsKio6IFBvbHllc3RlciAgCioqV2F0ZXJwcm9vZioqOiBZZXMgIAoqKkZsb29yIEFyZWEqKjogODAgc3F1YXJlIGZlZXQgIAoqKlBlYWsgSGVpZ2h0Kio6IDYgZmVldCAgCioqTnVtYmVyIG9mIERvb3JzKio6IDIgIAoqKkNvbG9yKio6IEdyZWVuICAKKipSYWluZmx5Kio6IEluY2x1ZGVkICAKKipSYWluZmx5IFdhdGVycHJvb2YgUmF0aW5nKio6IDIwMDBtbSAgCioqVGVudCBQb2xlcyoqOiBBbHVtaW51bSAgCioqUG9sZSBEaWFtZXRlcioqOiA5bW0gIAoqKlZlbnRpbGF0aW9uKio6IE1lc2ggcGFuZWxzIGFuZCBhZGp1c3RhYmxlIHZlbnRzICAKKipJbnRlcmlvciBQb2NrZXRzKio6IFllcyAoNCBwb2NrZXRzKSAgCioqR2VhciBMb2Z0Kio6IEluY2x1ZGVkICAKKipGb290cHJpbnQqKjogU29sZCBzZXBhcmF0ZWx5ICAKKipHdXkgTGluZXMqKjogUmVmbGVjdGl2ZSAgCioqU3Rha2VzKio6IEFsdW1pbnVtICAKKipDYXJyeSBCYWcqKjogSW5jbHVkZWQgIAoqKkRpbWVuc2lvbnMqKjogMTBmdCB4IDhmdCB4IDZmdCAobGVuZ3RoIHggd2lkdGggeCBwZWFrIGhlaWdodCkgIAoqKlBhY2tlZCBTaXplKio6IDI0IGluY2hlcyB4IDggaW5jaGVzICAKKipXZWlnaHQqKjogMTIgbGJzICAKCiMjIFVzZXIgR3VpZGUKCiMjIyBJbnRyb2R1Y3Rpb24KClRoYW5rIHlvdSBmb3IgY2hvb3NpbmcgdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQuIFRoaXMgdXNlciBndWlkZSBwcm92aWRlcyBpbnN0cnVjdGlvbnMgb24gaG93IHRvIHNldCB1cCwgdXNlLCBhbmQgbWFpbnRhaW4geW91ciB0ZW50IGVmZmVjdGl2ZWx5LiBQbGVhc2UgcmVhZCB0aGlzIGd1aWRlIHRob3JvdWdobHkgYmVmb3JlIHVzaW5nIHRoZSB0ZW50LgoKIyMjIFBhY2thZ2UgQ29udGVudHMKCkVuc3VyZSB0aGF0IHRoZSBwYWNrYWdlIGluY2x1ZGVzIHRoZSBmb2xsb3dpbmcgY29tcG9uZW50czoKCi0gVHJhaWxNYXN0ZXIgWDQgVGVudCBib2R5Ci0gVGVudCBwb2xlcwotIFJhaW5mbHkgKGlmIGFwcGxpY2FibGUpCi0gU3Rha2VzIGFuZCBndXkgbGluZXMKLSBDYXJyeSBiYWcKLSBVc2VyIEd1aWRlCgpJZiBhbnkgY29tcG9uZW50cyBhcmUgbWlzc2luZyBvciBkYW1hZ2VkLCBwbGVhc2UgY29udGFjdCBvdXIgY3VzdG9tZXIgc3VwcG9ydCBpbW1lZGlhdGVseS4KCiMjIyBUZW50IFNldHVwCgojIyMjIFN0ZXAgMTogU2VsZWN0aW5nIGEgU3VpdGFibGUgTG9jYXRpb24KCi0gRmluZCBhIGxldmVsIGFuZCBjbGVhciBhcmVhIGZvciBwaXRjaGluZyB0aGUgdGVudC4KLSBSZW1vdmUgYW55IHNoYXJwIG9iamVjdHMgb3IgZGVicmlzIHRoYXQgY291bGQgZGFtYWdlIHRoZSB0ZW50IGZsb29yLgoKIyMjIyBTdGVwIDI6IFVucGFja2luZyBhbmQgT3JnYW5pemluZyBDb21wb25lbnRzCgotIExheSBvdXQgYWxsIHRoZSB0ZW50IGNvbXBvbmVudHMgb24gdGhlIGdyb3VuZC4KLSBGYW1pbGlhcml6ZSB5b3Vyc2VsZiB3aXRoIGVhY2ggcGFydCwgaW5jbHVkaW5nIHRoZSB0ZW50IGJvZHksIHBvbGVzLCByYWluZmx5LCBzdGFrZXMsIGFuZCBndXkgbGluZXMuCgojIyMjIFN0ZXAgMzogQXNzZW1ibGluZyB0aGUgVGVudCBQb2xlcwoKLSBDb25uZWN0IHRoZSB0ZW50IHBvbGVzIGFjY29yZGluZyB0byB0aGVpciBkZXNpZ25hdGVkIGNvbG9yIGNvZGVzIG9yIG51bWJlcmluZy4KLSBTbGlkZSB0aGUgY29ubmVjdGVkIHBvbGVzIHRocm91Z2ggdGhlIHBvbGUgc2xlZXZlcyBvciBhdHRhY2ggdGhlbSB0byB0aGUgdGVudCBib2R5IGNsaXBzLgoKIyMjIyBTdGVwIDQ6IFNldHRpbmcgdXAgdGhlIFRlbnQgQm9keQoKLSBCZWdpbiBhdCBvbmUgZW5kIGFuZCByYWlzZSB0aGUgdGVudCBib2R5IGJ5IHB1c2hpbmcgdXAgdGhlIHBvbGVzLgotIEVuc3VyZSB0aGF0IHRoZSB0ZW50IGJvZHkgaXMgZXZlbmx5IHN0cmV0Y2hlZCBhbmQgY2VudGVyZWQuCi0gU2VjdXJlIHRoZSB0ZW50IGJvZHkgdG8gdGhlIGdyb3VuZCB1c2luZyBzdGFrZXMgYW5kIGd1eSBsaW5lcyBhcyBuZWVkZWQuCgojIyMjIFN0ZXAgNTogQXR0YWNoaW5nIHRoZSBSYWluZmx5IChpZiBhcHBsaWNhYmxlKQoKLSBJZiB5b3VyIHRlbnQgaW5jbHVkZXMgYSByYWluZmx5LCBzcHJlYWQgaXQgb3ZlciB0aGUgdGVudCBib2R5LgotIEF0dGFjaCB0aGUgcmFpbmZseSB0byB0aGUgdGVudCBjb3JuZXJzIGFuZCBzZWN1cmUgaXQgd2l0aCB0aGUgcHJvdmlkZWQgYnVja2xlcyBvciBjbGlwcy4KLSBBZGp1c3QgdGhlIHRlbnNpb24gb2YgdGhlIHJhaW5mbHkgdG8gZW5zdXJlIHByb3BlciBhaXJmbG93IGFuZCB3ZWF0aGVyIHByb3RlY3Rpb24uCgojIyMjIFN0ZXAgNjogU2VjdXJpbmcgdGhlIFRlbnQKCi0gU3Rha2UgZG93biB0aGUgdGVudCBjb3JuZXJzIGFuZCBndXkgb3V0IHRoZSBndXkgbGluZXMgZm9yIGFkZGl0aW9uYWwgc3RhYmlsaXR5LgotIEFkanVzdCB0aGUgdGVuc2lvbiBvZiB0aGUgZ3V5IGxpbmVzIHRvIHByb3ZpZGUgb3B0aW1hbCBzdGFiaWxpdHkgYW5kIHdpbmQgcmVzaXN0YW5jZS4KCiMjIyBUZW50IFRha2Vkb3duIGFuZCBTdG9yYWdlCgojIyMjIFN0ZXAgMTogUmVtb3ZpbmcgU3Rha2VzIGFuZCBHdXkgTGluZXMKCi0gUmVtb3ZlIGFsbCBzdGFrZXMgZnJvbSB0aGUgZ3JvdW5kLgotIFVudGllIG9yIGRpc2Nvbm5lY3QgdGhlIGd1eSBsaW5lcyBmcm9tIHRoZSB0ZW50IGFuZCBzdG9yZSB0aGVtIHNlcGFyYXRlbHkuCgojIyMjIFN0ZXAgMjogVGFraW5nIERvd24gdGhlIFRlbnQgQm9keQoKLSBTdGFydCBieSBjb2xsYXBzaW5nIHRoZSB0ZW50IHBvbGVzIGNhcmVmdWxseS4KLSBSZW1vdmUgdGhlIHBvbGVzIGZyb20gdGhlIHBvbGUgc2xlZXZlcyBvciBjbGlwcy4KLSBDb2xsYXBzZSB0aGUgdGVudCBib2R5IGFuZCBmb2xkIGl0IG5lYXRseS4KCiMjIyMgU3RlcCAzOiBEaXNhc3NlbWJsaW5nIHRoZSBUZW50IFBvbGVzCgotIERpc2Nvbm5lY3QgYW5kIHNlcGFyYXRlIHRoZSBpbmRpdmlkdWFsIHBvbGUgc2VjdGlvbnMuCi0gU3RvcmUgdGhlIHBvbGVzIGluIHRoZWlyIGRlc2lnbmF0ZWQgYmFnIG9yIHNsZWV2ZS4KCiMjIyMgU3RlcCA0OiBQYWNraW5nIHRoZSBUZW50CgotIEZvbGQgdGhlIHRlbnQgYm9keSB0aWdodGx5IGFuZCBwbGFjZSBpdCBpbiB0aGUgY2FycnkgYmFnLgotIEVuc3VyZSB0aGF0IHRoZSByYWluZmx5IGFuZCBhbnkgb3RoZXIgY29tcG9uZW50cyBhcmUgYWxzbyBwYWNrZWQgc2VjdXJlbHkuCgojIyMgVGVudCBDYXJlIGFuZCBNYWludGVuYW5jZQoKLSBDbGVhbiB0aGUgdGVudCByZWd1bGFybHkgd2l0aCBtaWxkIHNvYXAgYW5kIHdhdGVyLgotIEF2b2lkIHVzaW5nIGhhcnNoIGNoZW1pY2FscyBvciBhYnJhc2l2ZSBjbGVhbmVycy4KLSBBbGxvdyB0aGUgdGVudCB0byBkcnkgY29tcGxldGVseSBiZWZvcmUgc3RvcmluZyBpdC4KLSBTdG9yZSB0aGUgdGVudCBpbiBhIGNvb2wsIGRyeSBwbGFjZSBhd2F5IGZyb20gZGlyZWN0IHN1bmxpZ2h0LgoKIyMgQ2F1dGlvbnMKMS4gKipBdm9pZCBVbmV2ZW4gb3IgUm9ja3kgU3VyZmFjZXMqKjogRG8gbm90IHBsYWNlIHRoZSB0ZW50IG9uIHVuZXZlbiBvciByb2NreSBzdXJmYWNlcy4KMi4gKipTdGF5IENsZWFyIG9mIEhhemFyZG91cyBBcmVhcyoqOiBBdm9pZCBzZXR0aW5nIHVwIHRoZSB0ZW50IG5lYXIgaGF6YXJkb3VzIGFyZWFzLgozLiAqKk5vIE9wZW4gRmxhbWVzIG9yIEhlYXQgU291cmNlcyoqOiBEbyBub3QgdXNlIG9wZW4gZmxhbWVzLCBjYW5kbGVzLCBvciBhbnkgb3RoZXIgZmxhbW1hYmxlIGhlYXQgc291cmNlcyBuZWFyIHRoZSB0ZW50Lgo0LiAqKkF2b2lkIE92ZXJsb2FkaW5nKio6IERvIG5vdCBleGNlZWQgdGhlIG1heGltdW0gd2VpZ2h0IGNhcGFjaXR5IG9yIG92ZXJsb2FkIHRoZSB0ZW50IHdpdGggZXhjZXNzaXZlIGdlYXIgb3IgZXF1aXBtZW50Lgo1LiAqKkRvbid0IExlYXZlIFVuYXR0ZW5kZWQqKjogRG8gbm90IGxlYXZlIHRoZSB0ZW50IHVuYXR0ZW5kZWQgd2hpbGUgb3BlbiBvciBvY2N1cGllZC4KNi4gKipBdm9pZCBTaGFycCBPYmplY3RzKio6IEtlZXAgc2hhcnAgb2JqZWN0cyBhd2F5IGZyb20gdGhlIHRlbnQgdG8gcHJldmVudCBkYW1hZ2UgdG8gdGhlIGZhYnJpYyBvciBwdW5jdHVyZXMuCjcuICoqQXZvaWQgVXNpbmcgSGFyc2ggQ2hlbWljYWxzKio6IERvIG5vdCB1c2UgaGFyc2ggY2hlbWljYWxzIG9yIGFicmFzaXZlIGNsZWFuZXJzIG9uIHRoZSB0ZW50LCBhcyB0aGV5IG1heSBkYW1hZ2UgdGhlIG1hdGVyaWFsLgo4LiAqKkRvbid0IFN0b3JlIFdldCoqOiBEbyBub3Qgc3RvcmUgdGhlIHRlbnQgd2hlbiBpdCBpcyB3ZXQgb3IgZGFtcCwgYXMgaXQgY2FuIGxlYWQgdG8gbW9sZCwgbWlsZGV3LCBvciBmYWJyaWMgZGV0ZXJpb3JhdGlvbi4KOS4gKipBdm9pZCBEaXJlY3QgU3VubGlnaHQqKjogQXZvaWQgcHJvbG9uZ2VkIGV4cG9zdXJlIG9mIHRoZSB0ZW50IHRvIGRpcmVjdCBzdW5saWdodCwgYXMgaXQgY2FuIGNhdXNlIGZhZGluZyBvciB3ZWFrZW5pbmcgb2YgdGhlIGZhYnJpYy4KMTAuICoqRG9uJ3QgTmVnbGVjdCBNYWludGVuYW5jZSoqOiBSZWd1bGFybHkgY2xlYW4gYW5kIG1haW50YWluIHRoZSB0ZW50IGFjY29yZGluZyB0byB0aGUgcHJvdmlkZWQgaW5zdHJ1Y3Rpb25zIHRvIGVuc3VyZSBpdHMgbG9uZ2V2aXR5IGFuZCBwZXJmb3JtYW5jZS4KCiMjIFdhcnJhbnR5IEluZm9ybWF0aW9uClRoYW5rIHlvdSBmb3IgcHVyY2hhc2luZyB0aGUgVHJhaWxNYXN0ZXIgWDQgVGVudC4gV2UgYXJlIGNvbmZpZGVudCBpbiB0aGUgcXVhbGl0eSBhbmQgZHVyYWJpbGl0eSBvZiBvdXIgcHJvZHVjdC4gVGhpcyB3YXJyYW50eSBwcm92aWRlcyBjb3ZlcmFnZSBmb3IgYW55IG1hbnVmYWN0dXJpbmcgZGVmZWN0cyBvciBpc3N1ZXMgdGhhdCBtYXkgYXJpc2UgZHVyaW5nIG5vcm1hbCB1c2Ugb2YgdGhlIHRlbnQuIFBsZWFzZSByZWFkIHRoZSB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB0aGUgd2FycmFudHkgYmVsb3c6CgoxLiAqKldhcnJhbnR5IENvdmVyYWdlKio6IFRoZSBUcmFpbE1hc3RlciBYNCBUZW50IGlzIGNvdmVyZWQgYnkgYSAqKjIteWVhciBsaW1pdGVkIHdhcnJhbnR5KiogZnJvbSB0aGUgZGF0ZSBvZiBwdXJjaGFzZS4gVGhpcyB3YXJyYW50eSBjb3ZlcnMgbWFudWZhY3R1cmluZyBkZWZlY3RzIGluIG1hdGVyaWFscyBhbmQgd29ya21hbnNoaXAuCgoyLiAqKldoYXQgaXMgQ292ZXJlZCoqOgotIFNlYW0gb3IgZmFicmljIHRlYXJzIHRoYXQgb2NjdXIgdW5kZXIgbm9ybWFsIHVzZSBhbmQgYXJlIG5vdCBhIHJlc3VsdCBvZiBtaXN1c2Ugb3IgYWJ1c2UuCi0gSXNzdWVzIHdpdGggdGhlIHRlbnQgcG9sZXMsIHppcHBlcnMsIGJ1Y2tsZXMsIG9yIG90aGVyIGhhcmR3YXJlIGNvbXBvbmVudHMgdGhhdCBhZmZlY3QgdGhlIGZ1bmN0aW9uYWxpdHkgb2YgdGhlIHRlbnQuCi0gUHJvYmxlbXMgd2l0aCB0aGUgcmFpbmZseSBvciBvdGhlciBpbmNsdWRlZCBhY2Nlc3NvcmllcyB0aGF0IGltcGFjdCB0aGUgcGVyZm9ybWFuY2Ugb2YgdGhlIHRlbnQuCgozLiAqKldoYXQgaXMgTm90IENvdmVyZWQqKjoKLSBEYW1hZ2UgY2F1c2VkIGJ5IG1pc3VzZSwgYWJ1c2UsIG9yIGltcHJvcGVyIGNhcmUgb2YgdGhlIHRlbnQuCi0gTm9ybWFsIHdlYXIgYW5kIHRlYXIgb3IgY29zbWV0aWMgZGFtYWdlIHRoYXQgZG9lcyBub3QgYWZmZWN0IHRoZSBmdW5jdGlvbmFsaXR5IG9mIHRoZSB0ZW50LgotIERhbWFnZSBjYXVzZWQgYnkgZXh0cmVtZSB3ZWF0aGVyIGNvbmRpdGlvbnMsIG5hdHVyYWwgZGlzYXN0ZXJzLCBvciBhY3RzIG9mIG5hdHVyZS4KLSBBbnkgbW9kaWZpY2F0aW9ucyBvciBhbHRlcmF0aW9ucyBtYWRlIHRvIHRoZSB0ZW50IGJ5IHRoZSB1c2VyLgoKNC4gKipDbGFpbSBQcm9jZXNzKio6Ci0gSW4gdGhlIGV2ZW50IG9mIGEgd2FycmFudHkgY2xhaW0sIHBsZWFzZSBjb250YWN0IG91ciBjdXN0b21lciBzdXBwb3J0IChjb250YWN0IGRldGFpbHMgcHJvdmlkZWQgaW4gdGhlIHVzZXIgZ3VpZGUpIHRvIGluaXRpYXRlIHRoZSBwcm9jZXNzLgotIFByb3ZpZGUgcHJvb2Ygb2YgcHVyY2hhc2UsIGluY2x1ZGluZyB0aGUgZGF0ZSBhbmQgcGxhY2Ugb2YgcHVyY2hhc2UsIGFsb25nIHdpdGggYSBkZXRhaWxlZCBkZXNjcmlwdGlvbiBhbmQgc3VwcG9ydGluZyBldmlkZW5jZSBvZiB0aGUgaXNzdWUuCgo1LiAqKlJlc29sdXRpb24gT3B0aW9ucyoqOgotIFVwb24gcmVjZWlwdCBvZiB0aGUgd2FycmFudHkgY2xhaW0sIG91ciBjdXN0b21lciBzdXBwb3J0IHRlYW0gd2lsbCBhc3Nlc3MgdGhlIGlzc3VlIGFuZCBkZXRlcm1pbmUgdGhlIGFwcHJvcHJpYXRlIHJlc29sdXRpb24uCi0gT3B0aW9ucyBtYXkgaW5jbHVkZSByZXBhaXIsIHJlcGxhY2VtZW50IG9mIHRoZSBkZWZlY3RpdmUgcGFydHMsIG9yLCBpZiBuZWNlc3NhcnksIHJlcGxhY2VtZW50IG9mIHRoZSBlbnRpcmUgdGVudC4KCjYuICoqTGltaXRhdGlvbnMgYW5kIEV4Y2x1c2lvbnMqKjoKLSBPdXIgd2FycmFudHkgaXMgbm9uLXRyYW5zZmVyYWJsZSBhbmQgYXBwbGllcyBvbmx5IHRvIHRoZSBvcmlnaW5hbCBwdXJjaGFzZXIgb2YgdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQuCi0gVGhlIHdhcnJhbnR5IGRvZXMgbm90IGNvdmVyIGFueSBpbmNpZGVudGFsIG9yIGNvbnNlcXVlbnRpYWwgZGFtYWdlcyByZXN1bHRpbmcgZnJvbSB0aGUgdXNlIG9yIGluYWJpbGl0eSB0byB1c2UgdGhlIHRlbnQuCi0gQW55IHVuYXV0aG9yaXplZCByZXBhaXJzIG9yIGFsdGVyYXRpb25zIHZvaWQgdGhlIHdhcnJhbnR5LgoKIyMjIENvbnRhY3QgSW5mb3JtYXRpb24KCklmIHlvdSBoYXZlIGFueSBxdWVzdGlvbnMgb3IgbmVlZCBmdXJ0aGVyIGFzc2lzdGFuY2UsIHBsZWFzZSBjb250YWN0IG91ciBjdXN0b21lciBzdXBwb3J0OgoKLSBDdXN0b21lciBTdXBwb3J0IFBob25lOiArMS04MDAtMTIzLTQ1NjcKLSBDdXN0b21lciBTdXBwb3J0IEVtYWlsOiBzdXBwb3J0QGV4YW1wbGUuY29tCgojIyBSZXR1cm4gUG9saWN5Ci0gKipJZiBNZW1iZXJzaGlwIHN0YXR1cyAiTm9uZSAgICAgICAgIjoqKiAgUmV0dXJucyBhcmUgYWNjZXB0ZWQgd2l0aGluIDMwIGRheXMgb2YgcHVyY2hhc2UsIHByb3ZpZGVkIHRoZSB0ZW50IGlzIHVudXNlZCwgdW5kYW1hZ2VkIGFuZCBpbiBpdHMgb3JpZ2luYWwgcGFja2FnaW5nLiBDdXN0b21lciBpcyByZXNwb25zaWJsZSBmb3IgdGhlIGNvc3Qgb2YgcmV0dXJuIHNoaXBwaW5nLiBPbmNlIHRoZSByZXR1cm5lZCBpdGVtIGlzIHJlY2VpdmVkLCBhIHJlZnVuZCB3aWxsIGJlIGlzc3VlZCBmb3IgdGhlIGNvc3Qgb2YgdGhlIGl0ZW0gbWludXMgYSAxMCUgcmVzdG9ja2luZyBmZWUuIElmIHRoZSBpdGVtIHdhcyBkYW1hZ2VkIGR1cmluZyBzaGlwcGluZyBvciBpZiB0aGVyZSBpcyBhIGRlZmVjdCwgdGhlIGN1c3RvbWVyIHNob3VsZCBjb250YWN0IGN1c3RvbWVyIHNlcnZpY2Ugd2l0aGluIDcgZGF5cyBvZiByZWNlaXZpbmcgdGhlIGl0ZW0uCi0gKipJZiBNZW1iZXJzaGlwIHN0YXR1cyAiR29sZCI6KiogIFJldHVybnMgYXJlIGFjY2VwdGVkIHdpdGhpbiA2MCBkYXlzIG9mIHB1cmNoYXNlLCBwcm92aWRlZCB0aGUgdGVudCBpcyB1bnVzZWQsIHVuZGFtYWdlZCBhbmQgaW4gaXRzIG9yaWdpbmFsIHBhY2thZ2luZy4gRnJlZSByZXR1cm4gc2hpcHBpbmcgaXMgcHJvdmlkZWQuIE9uY2UgdGhlIHJldHVybmVkIGl0ZW0gaXMgcmVjZWl2ZWQsIGEgZnVsbCByZWZ1bmQgd2lsbCBiZSBpc3N1ZWQuIElmIHRoZSBpdGVtIHdhcyBkYW1hZ2VkIGR1cmluZyBzaGlwcGluZyBvciBpZiB0aGVyZSBpcyBhIGRlZmVjdCwgdGhlIGN1c3RvbWVyIHNob3VsZCBjb250YWN0IGN1c3RvbWVyIHNlcnZpY2Ugd2l0aGluIDcgZGF5cyBvZiByZWNlaXZpbmcgdGhlIGl0ZW0uCi0gKipJZiBNZW1iZXJzaGlwIHN0YXR1cyAiUGxhdGludW0iOioqICBSZXR1cm5zIGFyZSBhY2NlcHRlZCB3aXRoaW4gOTAgZGF5cyBvZiBwdXJjaGFzZSwgcHJvdmlkZWQgdGhlIHRlbnQgaXMgdW51c2VkLCB1bmRhbWFnZWQgYW5kIGluIGl0cyBvcmlnaW5hbCBwYWNrYWdpbmcuIEZyZWUgcmV0dXJuIHNoaXBwaW5nIGlzIHByb3ZpZGVkLCBhbmQgYSBmdWxsIHJlZnVuZCB3aWxsIGJlIGlzc3VlZC4gSWYgdGhlIGl0ZW0gd2FzIGRhbWFnZWQgZHVyaW5nIHNoaXBwaW5nIG9yIGlmIHRoZXJlIGlzIGEgZGVmZWN0LCB0aGUgY3VzdG9tZXIgc2hvdWxkIGNvbnRhY3QgY3VzdG9tZXIgc2VydmljZSB3aXRoaW4gNyBkYXlzIG9mIHJlY2VpdmluZyB0aGUgaXRlbS4KCiMjIFJldmlld3MKMSkgKipSYXRpbmc6KiogNQoqKlJldmlldzoqKiBJIGFtIGV4dHJlbWVseSBoYXBweSB3aXRoIG15IFRyYWlsTWFzdGVyIFg0IFRlbnQhIEl0J3Mgc3BhY2lvdXMsIGVhc3kgdG8gc2V0IHVwLCBhbmQga2VwdCBtZSBkcnkgZHVyaW5nIGEgc3Rvcm0uIFRoZSBVViBwcm90ZWN0aW9uIGlzIGEgZ3JlYXQgYWRkaXRpb24gdG9vLiBIaWdobHkgcmVjb21tZW5kIGl0IHRvIGFueW9uZSB3aG8gbG92ZXMgY2FtcGluZyEKCjIpICoqUmF0aW5nOioqIDMKKipSZXZpZXc6KiogSSBib3VnaHQgdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQsIGFuZCB3aGlsZSBpdCdzIHdhdGVycHJvb2YgYW5kIGhhcyBhIHNwYWNpb3VzIGludGVyaW9yLCBJIGZvdW5kIGl0IGEgYml0IGRpZmZpY3VsdCB0byBzZXQgdXAuIEl0J3MgYSBkZWNlbnQgdGVudCwgYnV0IEkgd2lzaCBpdCB3ZXJlIGVhc2llciB0byBhc3NlbWJsZS4KCjMpICoqUmF0aW5nOioqIDUKKipSZXZpZXc6KiogVGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQgaXMgYSBmYW50YXN0aWMgaW52ZXN0bWVudCBmb3IgYW55IHNlcmlvdXMgY2FtcGVyLiBUaGUgZWFzeSBzZXR1cCBhbmQgc3BhY2lvdXMgaW50ZXJpb3IgbWFrZSBpdCBwZXJmZWN0IGZvciBleHRlbmRlZCB0cmlwcywgYW5kIHRoZSB3YXRlcnByb29mIGRlc2lnbiBrZXB0IHVzIGRyeSBpbiBoZWF2eSByYWluLgoKNCkgKipSYXRpbmc6KiogNAoqKlJldmlldzoqKiBJIGxpa2UgdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQsIGJ1dCBJIHdpc2ggaXQgY2FtZSBpbiBtb3JlIGNvbG9ycy4gSXQncyBjb21mb3J0YWJsZSBhbmQgaGFzIG1hbnkgdXNlZnVsIGZlYXR1cmVzLCBidXQgdGhlIGdyZWVuIGNvbG9yIGp1c3QgaXNuJ3QgbXkgZmF2b3JpdGUuIE92ZXJhbGwsIGl0J3MgYSBnb29kIHRlbnQuCgo1KSAqKlJhdGluZzoqKiA1CioqUmV2aWV3OioqIFRoaXMgdGVudCBpcyBwZXJmZWN0IGZvciBteSBmYW1pbHkgY2FtcGluZyB0cmlwcy4gVGhlIHNwYWNpb3VzIGludGVyaW9yIGFuZCBjb252ZW5pZW50IHN0b3JhZ2UgcG9ja2V0IG1ha2UgaXQgZWFzeSB0byBzdGF5IG9yZ2FuaXplZC4gSXQncyBhbHNvIHN1cGVyIGVhc3kgdG8gc2V0IHVwLCBtYWtpbmcgaXQgYSBncmVhdCBhZGRpdGlvbiB0byBvdXIgZ2Vhci4KCiMjIEZBUQoxKSBDYW4gdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQgYmUgdXNlZCBpbiB3aW50ZXIgY29uZGl0aW9ucz8KVGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQgaXMgZGVzaWduZWQgZm9yIDMtc2Vhc29uIHVzZSBhbmQgbWF5IG5vdCBiZSBzdWl0YWJsZSBmb3IgZXh0cmVtZSB3aW50ZXIgY29uZGl0aW9ucyB3aXRoIGhlYXZ5IHNub3cgYW5kIGZyZWV6aW5nIHRlbXBlcmF0dXJlcy4KCjIpIEhvdyBtYW55IHBlb3BsZSBjYW4gY29tZm9ydGFibHkgc2xlZXAgaW4gdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQ/ClRoZSBUcmFpbE1hc3RlciBYNCBUZW50IGNhbiBjb21mb3J0YWJseSBhY2NvbW1vZGF0ZSB1cCB0byA0IHBlb3BsZSB3aXRoIHJvb20gZm9yIHRoZWlyIGdlYXIuCgozKSBJcyB0aGVyZSBhIHdhcnJhbnR5IG9uIHRoZSBUcmFpbE1hc3RlciBYNCBUZW50PwpZZXMsIHRoZSBUcmFpbE1hc3RlciBYNCBUZW50IGNvbWVzIHdpdGggYSAyLXllYXIgbGltaXRlZCB3YXJyYW50eSBhZ2FpbnN0IG1hbnVmYWN0dXJpbmcgZGVmZWN0cy4KCjQpIEFyZSB0aGVyZSBhbnkgYWRkaXRpb25hbCBhY2Nlc3NvcmllcyBpbmNsdWRlZCB3aXRoIHRoZSBUcmFpbE1hc3RlciBYNCBUZW50PwpUaGUgVHJhaWxNYXN0ZXIgWDQgVGVudCBpbmNsdWRlcyBhIHJhaW5mbHksIHRlbnQgc3Rha2VzLCBndXkgbGluZXMsIGFuZCBhIGNhcnJ5IGJhZyBmb3IgZWFzeSB0cmFuc3BvcnQuCgo1KSBDYW4gdGhlIFRyYWlsTWFzdGVyIFg0IFRlbnQgYmUgZWFzaWx5IGNhcnJpZWQgZHVyaW5nIGhpa2VzPwpZZXMsIHRoZSBUcmFpbE1hc3RlciBYNCBUZW50IHdlaWdocyBqdXN0IDEybGJzLCBhbmQgd2hlbiBwYWNrZWQgaW4gaXRzIGNhcnJ5IGJhZywgaXQgY2FuIGJlIGNvbWZvcnRhYmx5IGNhcnJpZWQgZHVyaW5nIGhpa2VzLg==</markmap-data></div>
+</details>
+<hr/>
+<h3 id="3-product-catalog-info">3. Product Catalog Info<a class="headerlink" href="#3-product-catalog-info" title="Permanent link">¶</a></h3>
+<p>This record represents a single product item in the <strong>product catalog</strong> database, with a unique product ID. The <code>products.csv</code> file contains a collection of these records, representing the entire Contoso Outdoors product catalog at a high level. </p>
+<p>Each product ID has a corresponding "product manual" record that provides more extensive detail (e.g, in website pages). The product catalog entry itself contains just the <em>{id, name, price, category, brand, description}</em> information required for creating product indexes and searching for matching results (for later retrieval) based on a customer query. </p>
+<p>The catalog record below corresponds to the product manual record above.</p>
+<details class="quote">
+<summary>SAMPLE RECORD (CSV) - <em>click to expand</em></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nb">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="n">name</span> <span class="o">=</span> <span class="n">TrailMaster</span> <span class="n">X4</span> <span class="n">Tent</span><span class="p">,</span>
+<span class="n">price</span> <span class="o">=</span> <span class="mf">250.0</span><span class="p">,</span>
+<span class="n">category</span> <span class="o">=</span> <span class="n">Tents</span><span class="p">,</span>
+<span class="n">brand</span> <span class="o">=</span> <span class="n">OutdoorLiving</span><span class="p">,</span>
+<span class="n">description</span> <span class="o">=</span> <span class="s2">"Unveiling the TrailMaster X4 Tent from </span><span class="se">\</span>
+<span class="s2">    OutdoorLiving, your home away from home for your next </span><span class="se">\</span>
+<span class="s2">    camping adventure. Crafted from durable polyester, </span><span class="se">\</span>
+<span class="s2">    this tent boasts a spacious interior perfect for four </span><span class="se">\</span>
+<span class="s2">    occupants. It ensures your dryness under drizzly skies </span><span class="se">\</span>
+<span class="s2">    thanks to its water-resistant construction, and the </span><span class="se">\</span>
+<span class="s2">    accompanying rainfly adds an extra layer of weather </span><span class="se">\</span>
+<span class="s2">    protection. It offers refreshing airflow and bug defence, </span><span class="se">\</span>
+<span class="s2">    courtesy of its mesh panels. Accessibility is not an issue </span><span class="se">\</span>
+<span class="s2">    with its multiple doors and interior pockets that keep </span><span class="se">\</span>
+<span class="s2">    small items tidy. Reflective guy lines grant better </span><span class="se">\</span>
+<span class="s2">    visibility at night, and the freestanding design </span><span class="se">\</span>
+<span class="s2">    simplifies setup and relocation. With the included </span><span class="se">\</span>
+<span class="s2">    carry bag, transporting this convenient abode becomes </span><span class="se">\</span>
+<span class="s2">    a breeze. Be it an overnight getaway or a week-long nature </span><span class="se">\</span>
+<span class="s2">    escapade, the TrailMaster X4 Tent provides comfort, </span><span class="se">\</span>
+<span class="s2">    convenience, and concord with the great outdoors. Comes with </span><span class="se">\</span>
+<span class="s2">    a two-year limited warranty to ensure customer satisfaction."</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: 1.2 Application Scenario" class="md-footer__link md-footer__link--prev" href="../01/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                1.2 Application Scenario
+              </div>
+</div>
+</a>
+<a aria-label="Next: 1.4 RAG Chat Tutorial" class="md-footer__link md-footer__link--next" href="../03/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                1.4 RAG Chat Tutorial
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2025 - present: Microsoft <br/>🍪 | <a href="#__consent">Change cookie settings</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+</li>
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="github" type="checkbox"/>
+<span class="task-list-indicator"></span>
+      GitHub
+    </label>
+</li>
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Accept</button>
+<label class="md-button" for="__settings">Manage settings</label>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.indexes", "navigation.top", "toc.follow", "navigation.footer", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
+<script type="text/javascript">(function initializeMarkmap() {
+    const transformer = new markmap.Transformer();
+    const preloadScripts = transformer.plugins
+        .flatMap((plugin) => plugin.config?.preloadScripts || [])
+        .map((item) => transformer.resolveJS(item));
+    const assets = transformer.getAssets();
+    const loading = Promise.all([
+        assets.styles && markmap.loadCSS(assets.styles),
+        markmap.loadJS([...preloadScripts, ...assets.scripts]),
+    ]);
+
+    function parseData(content) {
+        const { root, frontmatter } = transformer.transform(content);
+        let options = markmap.deriveOptions(frontmatter?.markmap);
+        options = Object.assign(
+            {
+                fitRatio: 0.85,
+            },
+            options
+        );
+        return { root, options };
+    }
+
+    function resetMarkmap(m, el) {
+        if (!m.state.rect) return;
+        const { x1, y1, x2, y2 } = m.state.rect;
+        const height = (el.offsetWidth / (x2 - x1)) * (y2 - y1);
+        el.style.height = height + "px";
+        m.fit();
+    }
+
+    function decodeBase64(encoded) {
+        const binary = atob(encoded);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < bytes.length; i++) {
+            bytes[i] = binary.charCodeAt(i);
+        }
+        return new TextDecoder().decode(bytes);
+    }
+
+    function renderMarkmap(el) {
+        const dataEl = el.querySelector("markmap-data");
+        if (!dataEl) return;
+        let content = el.textContent;
+        if (dataEl.getAttribute("encoding") === "base64") {
+            content = decodeBase64(content);
+        }
+        el.innerHTML = "<svg>";
+        svg = el.firstChild;
+        const { root, options } = parseData(content);
+        const m = markmap.Markmap.create(svg, options);
+        m.setData(root);
+        requestAnimationFrame(() => {
+            resetMarkmap(m, el);
+        });
+    }
+
+    function updateMarkmaps(node) {
+        for (const el of node.querySelectorAll(".mkdocs-markmap")) {
+            renderMarkmap(el);
+        }
+    }
+
+    loading.then(() => {
+        const observer = new MutationObserver((mutationList) => {
+            for (const mutation of mutationList) {
+                if (mutation.type === "childList") {
+                    for (const node of mutation.addedNodes) {
+                        updateMarkmaps(node);
+                    }
+                }
+            }
+        });
+
+        observer.observe(document.body, { childList: true });
+
+        updateMarkmaps(document);
+    });
+})();
+</script></body>
+</html>
