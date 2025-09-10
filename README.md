@@ -1,16 +1,19 @@
 # For Beginners: The Demo Template
 
 > [!IMPORTANT]  
-> This README is meant as guidance for **users** of this template. When you instantiate the template to start a new project, please replace this README.md with the version found in `docs/README.md` and fill that in to reflect your topic instead. If you are retrofitting an existing repository, then simply read the guidance here to understand how to apply these tactics (and ensure your repository is connected into the larger inititaive)
+> This is a customized version of the [Get Started With AI Agents](https://github.com/nitya/get-started-with-ai-agents) template recommended by Azure AI Foundry. The [original README](./README.azd.md) provides the documentation for the template itself. However _this_ repository contains a [WORKSHOP](./workshop/README.md) resource that will help guide you through setup and experimentation with the template, with a specific view on supporting the [Models For Beginners](https://aka.ms/models-for-beginners), [Model Mondays](https://aka.ms/model-mondays) and related 1P workshops focused on model selection, customization and optimization.
+
+## What It Provides
+
+This repository streamlines the _infrastructure setup_ for relevant open-source curricula 
 
 This repository provides an actionable templat for delivering open-source curriculum or providing repo-hosted workshops in conjunction with Azure Samples projects, by taking advantage of the built-in GitHub Pages hosting in the source repository. 
 
 1. The projects will use [Mkdocs Material](https://github.com/squidfunk/mkdocs-material) for the documentation setup
-2. The projects will use [GitHub Pages](https://pages.github.com/) for hosted websites
 3. The projects will use [AI Quickstart Templates](https://ai.azure.com/templates) for infrastructure setup
 
 
-## Azure AI Foundry
+## How To Use It
 
 This template is ideally suited to "For Beginners" projects that have labs that require Azure AI Foundry usage. This template provides learners with the guidance for setting up, configuring, and customizing various aspects of the default Azure AI Foundry quickstart template for AI Agents.
 
@@ -56,7 +59,3 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 ## Trademarks
 
 This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
