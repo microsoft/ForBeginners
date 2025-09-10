@@ -42,18 +42,14 @@ hooks:
       run: chmod u+r+x ./scripts/postdeploy.sh; ./scripts/postdeploy.sh;
       continueOnError: true
       interactive: true
-# --- NITYA-TOFIX
-# The 'services' section below is commented out to prevent deployment of the Azure Container Apps resource.
-# This ensures only infrastructure is provisioned, not the application/service itself.
-# If you want to re-enable app deployment, uncomment and update as needed.
-# services:
-#   api_and_frontend:
-#     project: ./src
-#     language: py
-#     host: containerapp
-#     docker:
-#       image: api_and_frontend
-#       remoteBuild: true
+services:
+  api_and_frontend:
+    project: ./src
+    language: py
+    host: containerapp
+    docker:
+      image: api_and_frontend
+      remoteBuild: true
 pipeline:
   variables:
     - AZURE_RESOURCE_GROUP

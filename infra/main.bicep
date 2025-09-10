@@ -232,74 +232,72 @@ var resolvedApplicationInsightsName = !useApplicationInsights || !empty(azureExi
   ? ''
   : !empty(applicationInsightsName) ? applicationInsightsName : '${abbrs.insightsComponents}${resourceToken}'
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module monitoringMetricsContribuitorRoleAzureAIDeveloperRG 'core/security/appinsights-access.bicep' = if (!empty(resolvedApplicationInsightsName)) {
-//   name: 'monitoringmetricscontributor-role-azureai-developer-rg'
-//   scope: rg
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     appInsightsName: resolvedApplicationInsightsName
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//   }
-// }
+module monitoringMetricsContribuitorRoleAzureAIDeveloperRG 'core/security/appinsights-access.bicep' = if (!empty(resolvedApplicationInsightsName)) {
+  name: 'monitoringmetricscontributor-role-azureai-developer-rg'
+  scope: rg
+  params: {
+    principalType: 'ServicePrincipal'
+    appInsightsName: resolvedApplicationInsightsName
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+  }
+}
 
 resource existingProjectRG 'Microsoft.Resources/resourceGroups@2021-04-01' existing = if (!empty(azureExistingAIProjectResourceId) && contains(azureExistingAIProjectResourceId, '/')) {
   name: split(azureExistingAIProjectResourceId, '/')[4]
 }
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module userRoleAzureAIDeveloperBackendExistingProjectRG 'core/security/role.bicep' = if (!empty(azureExistingAIProjectResourceId)) {
-//   name: 'backend-role-azureai-developer-existing-project-rg'
-//   scope: existingProjectRG
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: '64702f94-c441-49e6-a78b-ef80e0188fee' 
-//   }
-// }
+module userRoleAzureAIDeveloperBackendExistingProjectRG 'core/security/role.bicep' = if (!empty(azureExistingAIProjectResourceId)) {
+  name: 'backend-role-azureai-developer-existing-project-rg'
+  scope: existingProjectRG
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: '64702f94-c441-49e6-a78b-ef80e0188fee' 
+  }
+}
 
-// The containerApps module is commented out to remove Azure Container Apps dependency as per 2025-08-25 request.
-// module containerApps 'core/host/container-apps.bicep' = {
-//   name: 'container-apps'
-//   scope: rg
-//   params: {
-//     name: 'app'
-//     location: location
-//     containerRegistryName: '${abbrs.containerRegistryRegistries}${resourceToken}'
-//     tags: tags
-//     containerAppsEnvironmentName: 'containerapps-env-${resourceToken}'
-//     logAnalyticsWorkspaceName: empty(azureExistingAIProjectResourceId)
-//       ? ai!.outputs.logAnalyticsWorkspaceName
-//       : logAnalytics!.outputs.name
-//   }
-// }
+//Container apps host and api
+// Container apps host (including container registry)
+module containerApps 'core/host/container-apps.bicep' = {
+  name: 'container-apps'
+  scope: rg
+  params: {
+    name: 'app'
+    location: location
+    containerRegistryName: '${abbrs.containerRegistryRegistries}${resourceToken}'
+    tags: tags
+    containerAppsEnvironmentName: 'containerapps-env-${resourceToken}'
+    logAnalyticsWorkspaceName: empty(azureExistingAIProjectResourceId)
+      ? ai!.outputs.logAnalyticsWorkspaceName
+      : logAnalytics!.outputs.name
+  }
+}
 
 // API app
-// The api module is commented out to remove Azure Container Apps dependency as per 2025-08-25 request.
-// module api 'api.bicep' = {
-//   name: 'api'
-//   scope: rg
-//   params: {
-//     name: 'ca-api-${resourceToken}'
-//     location: location
-//     tags: tags
-//     identityName: '${abbrs.managedIdentityUserAssignedIdentities}api-${resourceToken}'
-//     containerAppsEnvironmentName: containerApps.outputs.environmentName
-//     azureExistingAIProjectResourceId: projectResourceId
-//     containerRegistryName: containerApps.outputs.registryName
-//     agentDeploymentName: agentDeploymentName
-//     searchConnectionName: searchConnectionName
-//     aiSearchIndexName: aiSearchIndexName
-//     searchServiceEndpoint: searchServiceEndpoint
-//     embeddingDeploymentName: embeddingDeploymentName
-//     embeddingDeploymentDimensions: embeddingDeploymentDimensions
-//     agentName: agentName
-//     agentID: agentID
-//     enableAzureMonitorTracing: enableAzureMonitorTracing
-//     azureTracingGenAIContentRecordingEnabled: azureTracingGenAIContentRecordingEnabled
-//     projectEndpoint: projectEndpoint
-//   }
-// }
+module api 'api.bicep' = {
+  name: 'api'
+  scope: rg
+  params: {
+    name: 'ca-api-${resourceToken}'
+    location: location
+    tags: tags
+    identityName: '${abbrs.managedIdentityUserAssignedIdentities}api-${resourceToken}'
+    containerAppsEnvironmentName: containerApps.outputs.environmentName
+    azureExistingAIProjectResourceId: projectResourceId
+    containerRegistryName: containerApps.outputs.registryName
+    agentDeploymentName: agentDeploymentName
+    searchConnectionName: searchConnectionName
+    aiSearchIndexName: aiSearchIndexName
+    searchServiceEndpoint: searchServiceEndpoint
+    embeddingDeploymentName: embeddingDeploymentName
+    embeddingDeploymentDimensions: embeddingDeploymentDimensions
+    agentName: agentName
+    agentID: agentID
+    enableAzureMonitorTracing: enableAzureMonitorTracing
+    azureTracingGenAIContentRecordingEnabled: azureTracingGenAIContentRecordingEnabled
+    projectEndpoint: projectEndpoint
+  }
+}
 
 
 
@@ -333,61 +331,56 @@ module userAzureAIUser  'core/security/role.bicep' = if (empty(azureExistingAIPr
   }
 }
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module backendCognitiveServicesUser  'core/security/role.bicep' = if (empty(azureExistingAIProjectResourceId)) {
-//   name: 'backend-role-cognitive-services-user'
-//   scope: rg
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: 'a97b65f3-24c7-4388-baec-2e87135dc908'
-//   }
-// }
+module backendCognitiveServicesUser  'core/security/role.bicep' = if (empty(azureExistingAIProjectResourceId)) {
+  name: 'backend-role-cognitive-services-user'
+  scope: rg
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: 'a97b65f3-24c7-4388-baec-2e87135dc908'
+  }
+}
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module backendCognitiveServicesUser2  'core/security/role.bicep' = if (!empty(azureExistingAIProjectResourceId)) {
-//   name: 'backend-role-cognitive-services-user2'
-//   scope: existingProjectRG
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: 'a97b65f3-24c7-4388-baec-2e87135dc908'
-//   }
-// }
+module backendCognitiveServicesUser2  'core/security/role.bicep' = if (!empty(azureExistingAIProjectResourceId)) {
+  name: 'backend-role-cognitive-services-user2'
+  scope: existingProjectRG
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: 'a97b65f3-24c7-4388-baec-2e87135dc908'
+  }
+}
 
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module backendRoleSearchIndexDataContributorRG 'core/security/role.bicep' = if (useSearchService) {
-//   name: 'backend-role-azure-index-data-contributor-rg'
-//   scope: rg
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: '8ebe5a00-799e-43f5-93ac-243d3dce84a7'
-//   }
-// }
+module backendRoleSearchIndexDataContributorRG 'core/security/role.bicep' = if (useSearchService) {
+  name: 'backend-role-azure-index-data-contributor-rg'
+  scope: rg
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: '8ebe5a00-799e-43f5-93ac-243d3dce84a7'
+  }
+}
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module backendRoleSearchIndexDataReaderRG 'core/security/role.bicep' = if (useSearchService) {
-//   name: 'backend-role-azure-index-data-reader-rg'
-//   scope: rg
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: '1407120a-92aa-4202-b7e9-c0e197c71c8f'
-//   }
-// }
+module backendRoleSearchIndexDataReaderRG 'core/security/role.bicep' = if (useSearchService) {
+  name: 'backend-role-azure-index-data-reader-rg'
+  scope: rg
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: '1407120a-92aa-4202-b7e9-c0e197c71c8f'
+  }
+}
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module backendRoleSearchServiceContributorRG 'core/security/role.bicep' = if (useSearchService) {
-//   name: 'backend-role-azure-search-service-contributor-rg'
-//   scope: rg
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: '7ca78c08-252a-4471-8644-bb5ff32d4ba0'
-//   }
-// }
+module backendRoleSearchServiceContributorRG 'core/security/role.bicep' = if (useSearchService) {
+  name: 'backend-role-azure-search-service-contributor-rg'
+  scope: rg
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: '7ca78c08-252a-4471-8644-bb5ff32d4ba0'
+  }
+}
 
 module userRoleSearchIndexDataContributorRG 'core/security/role.bicep' = if (useSearchService) {
   name: 'user-role-azure-index-data-contributor-rg'
@@ -419,16 +412,15 @@ module userRoleSearchServiceContributorRG 'core/security/role.bicep' = if (useSe
   }
 }
 
-// The following module is commented out because it referenced the removed api module (no container app deployed as of 2025-08-25)
-// module backendRoleAzureAIDeveloperRG 'core/security/role.bicep' = {
-//   name: 'backend-role-azureai-developer-rg'
-//   scope: rg
-//   params: {
-//     principalType: 'ServicePrincipal'
-//     principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-//     roleDefinitionId: '64702f94-c441-49e6-a78b-ef80e0188fee'
-//   }
-// }
+module backendRoleAzureAIDeveloperRG 'core/security/role.bicep' = {
+  name: 'backend-role-azureai-developer-rg'
+  scope: rg
+  params: {
+    principalType: 'ServicePrincipal'
+    principalId: api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+    roleDefinitionId: '64702f94-c441-49e6-a78b-ef80e0188fee'
+  }
+}
 
 output AZURE_RESOURCE_GROUP string = rg.name
 
@@ -448,11 +440,10 @@ output ENABLE_AZURE_MONITOR_TRACING bool = enableAzureMonitorTracing
 output AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED bool = azureTracingGenAIContentRecordingEnabled
 
 // Outputs required by azd for ACA
-// The following outputs are commented out to remove Azure Container Apps dependency as per 2025-08-25 request.
-// output AZURE_CONTAINER_ENVIRONMENT_NAME string = containerApps.outputs.environmentName
-// output SERVICE_API_IDENTITY_PRINCIPAL_ID string = api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
-// output SERVICE_API_NAME string = api.outputs.SERVICE_API_NAME
-// output SERVICE_API_URI string = api.outputs.SERVICE_API_URI
-// output SERVICE_API_ENDPOINTS array = ['${api.outputs.SERVICE_API_URI}']
-// output SEARCH_CONNECTION_ID string = ''
-// output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerApps.outputs.registryLoginServer
+output AZURE_CONTAINER_ENVIRONMENT_NAME string = containerApps.outputs.environmentName
+output SERVICE_API_IDENTITY_PRINCIPAL_ID string = api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
+output SERVICE_API_NAME string = api.outputs.SERVICE_API_NAME
+output SERVICE_API_URI string = api.outputs.SERVICE_API_URI
+output SERVICE_API_ENDPOINTS array = ['${api.outputs.SERVICE_API_URI}']
+output SEARCH_CONNECTION_ID string = ''
+output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerApps.outputs.registryLoginServer
