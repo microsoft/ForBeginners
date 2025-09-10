@@ -1,0 +1,263 @@
+.container {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.topBar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 16px 24px;
+}
+
+.leftSection {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.rightSection {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+  align-items: center;
+}
+
+.agentIconContainer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.agentIcon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+}
+
+.agentIcon.newAgent {
+  background-color: var(--colorNeutralForegroundDisabled);
+  border-radius: 50%;
+}
+
+.agentName {
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agentName.newAgent {
+  color: var(--colorNeutralForegroundDisabled);
+}
+
+.content {
+  position: relative;
+
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr minmax(min(500px, 100%), 50%) 1fr;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 12px;
+}
+
+.builtWithBadge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+
+  /* No design yet for how to handle the badge on smaller screens, hide it for now */
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.chatbot {
+  overflow: hidden;
+  display: flex;
+  grid-column: 2;
+  flex: 1;
+  flex-direction: column;
+}
+
+.chatbot:not(:has(.emptyChatContainer)) {
+  height: 100%;
+}
+
+.emptyChatContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wavesContainer {
+  pointer-events: none;
+
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: 0;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 300px;
+  max-height: 100%;
+
+  animation: waves-fade-in 1s ease-in-out;
+}
+
+.wavesContainer > canvas {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes waves-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Legacy styles kept for compatibility */
+.emptyStateAgentIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.content > .agentName {
+  margin-bottom: 8px;
+}
+
+.menuButtonContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.menuButton {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--colorNeutralBackground1);
+  border: 1px solid var(--colorNeutralStroke1);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+  display: none;
+}
+
+.menuButtonContainer:hover .menu,
+.menuButton:focus-within .menu {
+  display: block;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.menuItem:hover {
+  background-color: var(--colorNeutralBackground2);
+}
+
+.externalLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.menuButtonContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.emptyChatContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+
+  padding: 24px;
+
+  text-align: center;
+}
+
+.menuButton {
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--colorNeutralBackground1);
+  border: 1px solid var(--colorNeutralStroke1);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  min-width: 200px;
+  display: none;
+}
+
+.menuButtonContainer:hover .menu,
+.menuButton:focus-within .menu {
+  display: block;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.menuItem:hover {
+  background-color: var(--colorNeutralBackground2);
+}
+
+.externalLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+# TODO: do we need hooks? 
+# TODO: do we need all of the variables?
+
+name: azd-get-started-with-ai-agents
+metadata:
+  template: azd-get-started-with-ai-agents@1.0.1
+requiredVersions:
+  azd: ">=1.14.0"
+
+hooks:
+  preup:
+    posix:
+      shell: sh
+      run: chmod u+r+x ./scripts/validate_env_vars.sh; ./scripts/validate_env_vars.sh
+      interactive: true
+      continueOnError: false
+    windows:
+      shell: pwsh
+      run: ./scripts/validate_env_vars.ps1
+      interactive: true
+      continueOnError: false      
+  postprovision:
+    windows:
+      shell: pwsh
+      run: ./scripts/write_env.ps1
+      continueOnError: true
+      interactive: true
+    posix:
+      shell: sh
+      run: chmod u+r+x ./scripts/write_env.sh; ./scripts/write_env.sh;
+      continueOnError: true
+      interactive: true
+  postdeploy:
+    windows:
+      shell: pwsh
+      run: ./scripts/postdeploy.ps1
+      continueOnError: true
+      interactive: true
+    posix:
+      shell: sh
+      run: chmod u+r+x ./scripts/postdeploy.sh; ./scripts/postdeploy.sh;
+      continueOnError: true
+      interactive: true
+services:
+  api_and_frontend:
+    project: ./src
+    language: py
+    host: containerapp
+    docker:
+      image: api_and_frontend
+      remoteBuild: true
+pipeline:
+  variables:
+    - AZURE_RESOURCE_GROUP
+    - AZURE_AIHUB_NAME
+    - AZURE_AIPROJECT_NAME
+    - AZURE_AISERVICES_NAME
+    - AZURE_SEARCH_SERVICE_NAME
+    - AZURE_APPLICATION_INSIGHTS_NAME
+    - AZURE_CONTAINER_REGISTRY_NAME
+    - AZURE_KEYVAULT_NAME
+    - AZURE_STORAGE_ACCOUNT_NAME
+    - AZURE_LOG_ANALYTICS_WORKSPACE_NAME
+    - USE_CONTAINER_REGISTRY
+    - USE_APPLICATION_INSIGHTS
+    - USE_AZURE_AI_SEARCH_SERVICE
+    - AZURE_AI_AGENT_NAME
+    - AZURE_AI_AGENT_ID
+    - AZURE_AI_AGENT_DEPLOYMENT_NAME
+    - AZURE_AI_AGENT_DEPLOYMENT_SKU
+    - AZURE_AI_AGENT_DEPLOYMENT_CAPACITY
+    - AZURE_AI_AGENT_MODEL_NAME
+    - AZURE_AI_AGENT_MODEL_FORMAT
+    - AZURE_AI_AGENT_MODEL_VERSION
+    - AZURE_AI_EMBED_DEPLOYMENT_NAME
+    - AZURE_AI_EMBED_DEPLOYMENT_SKU
+    - AZURE_AI_EMBED_DEPLOYMENT_CAPACITY
+    - AZURE_AI_EMBED_MODEL_NAME
+    - AZURE_AI_EMBED_MODEL_FORMAT
+    - AZURE_AI_EMBED_MODEL_VERSION
+    - AZURE_AI_EMBED_DIMENSIONS
+    - AZURE_AI_SEARCH_INDEX_NAME
+    - AZURE_EXISTING_AIPROJECT_RESOURCE_ID
+    - AZURE_EXISTING_AIPROJECT_ENDPOINT
+    - AZURE_EXISTING_AGENT_ID
+    - ENABLE_AZURE_MONITOR_TRACING
+    - AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED
