@@ -1,6 +1,12 @@
 # For Beginners: The Demo Template
 
-> [!IMPORTANT]  
+
+
+> [!IMPORTANT]
+> **THIS REPOSITORY IS CURRENTLY UNDER DEVELOPMENT FOR AN UPCOMING WORKSHOP. Please do not file any issues at this time since the repository will be actively updated for the next few weeks
+> 
+
+
 > This is a customized version of the [Get Started With AI Agents](https://github.com/nitya/get-started-with-ai-agents) template recommended by Azure AI Foundry. The [original README](./README.azd.md) provides the documentation for the template itself. However _this_ repository contains a [WORKSHOP](./workshop/README.md) resource that will help guide you through setup and experimentation with the template, with a specific view on supporting the [Models For Beginners](https://aka.ms/models-for-beginners), [Model Mondays](https://aka.ms/model-mondays) and related 1P workshops focused on model selection, customization and optimization.
 
 ## What It Provides
