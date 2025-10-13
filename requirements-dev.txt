@@ -1,3 +1,10 @@
--r src/requirements.txt
-ruff
-pre-commit
+# ......... Documentation
+mkdocs-material==9.6.20
+
+# ......... AZD Template
+mkdocs-material==9.6.20
+
+# ......... Other
+#-r src/requirements.txt
+#ruff
+#pre-commit

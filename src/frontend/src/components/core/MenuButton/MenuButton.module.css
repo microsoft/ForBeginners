@@ -1,3 +1,0 @@
-.secondary:not(:disabled, :active, :hover) {
-  background-color: var(--colorNeutralBackground2);
-}
