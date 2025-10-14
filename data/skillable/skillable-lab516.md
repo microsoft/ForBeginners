@@ -9,13 +9,17 @@ This is a **75-minute** instructor-led workshop session at Microsoft Ignite 2025
 
 ## 1. Lab Instructions
 
-**Instructions Link:** ++[Lab516 README](https://github.com/microsoft/ignite25-LAB516-safeguard-your-agents-with-ai-red-teaming-agent-in-azure-ai-foundry)++
+**Project Repo:** ++https://aka.ms/ignite25/lab516++
 
-Open a new private browser in your workstation. 
+The lab guide and code exercises are available in the repository above. To get started:
 
-1. Copy the instructions link to the browser and navigate to it.
-1. In the "Before You Begin" section, **Select the Microsoft AI Tour tab**
-1. Leave this browser open and follow the instructions for the lab.
+1. Log into GitHub with a personal profile - create one if needed.
+1. Copy the Project Repo link - open it in a new browser tab.
+1. Click "Create Codespace" button - you should see a VS Code IDE in new tab.
+1. Wait till Codespaces is ready - you should see an active VS Code terminal.
+1. Run this command in terminal - ++mkdocs serve > /dev/null 2>&1 &++
+1. Confirm "open in browser" pop-up - you will see an interactive guide in the browser!
+1. Leave this browser open and follow the instructions in that guide.
 
 ## 2. Azure Credentials
 
