@@ -1,0 +1,25 @@
+.chatInputContainer {
+  background-color: var(--colorNeutralBackground3);
+  border-top: 1px solid var(--colorNeutralStroke1);
+}
+
+/* Customize the Fluent ChatInput container */
+.chatInputContainer > div {
+  padding: 12px;
+  border: none;
+  background-color: var(--colorNeutralBackground3);
+}
+
+/* Custom textarea height for the Fluent ChatInput */
+.chatInputContainer :global(.fui-ChatInput__textarea) {
+  max-height: 150px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Customize the send button in Fluent ChatInput */
+.chatInputContainer :global(.fui-ChatInput__send-button) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

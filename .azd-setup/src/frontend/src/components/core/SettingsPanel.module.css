@@ -1,0 +1,13 @@
+.panel {
+  width: 320px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.settingsButton {
+  margin: 8px;
+}
