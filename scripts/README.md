@@ -33,27 +33,27 @@ Run this command from the root of repo:
 ```
 
 This script will:
-1. Create the `.infra-setup` directory
+1. Create the `.azd-setup` directory
 2. Initialize the AI agents template from Azure Samples
 3. Configure environment variables for the lab
 4. **Install Python dependencies** from the template (requirements-dev.txt and editable src package)
 
 #### **Python Dependencies**: 
-The script automatically installs Python dependencies after the `.infra-setup` directory is created:
-- `pip install -r .infra-setup/requirements-dev.txt` (if file exists)
-- `pip install -e .infra-setup/src` (if directory exists)
+The script automatically installs Python dependencies after the `.azd-setup` directory is created:
+- `pip install -r .azd-setup/requirements-dev.txt` (if file exists)
+- `pip install -e .azd-setup/src` (if directory exists)
 
 These dependencies are installed conditionally only after the template is set up, which is why they're commented out in the main `requirements.txt` file.
 
 #### **Recommendation**: 
-Once the `.azure/MSIGNITE25-LAB516/.env` is created, specify `AZURE_LOCATION="swedencentral"` proactively to have it pick up that location. This may not always show as an option if run using default `azd up`
+Once the `.azure/AI-AGENTS-AZD/.env` is created, specify `AZURE_LOCATION="swedencentral"` proactively to have it pick up that location. This may not always show as an option if run using default `azd up`
 
 #### **Execution**: 
 
 Once the setup is complete, you can deploy:
 
 ```bash
-cd .infra-setup
+cd .azd-setup
 azd up
 ```
 
