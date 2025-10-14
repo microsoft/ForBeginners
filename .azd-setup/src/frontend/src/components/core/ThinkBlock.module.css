@@ -1,0 +1,32 @@
+.thinkBlock {
+  margin: 12px 0;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.thinkSummary {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.thinkSummary::-webkit-details-marker {
+  display: none;
+}
+
+.thinkHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.thinkLabel {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.thinkContent {
+  padding: 8px 12px 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}

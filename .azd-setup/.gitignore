@@ -1,0 +1,20 @@
+__pycache__/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.azure
+
+# Node.js dependencies
+node_modules/
+.pnpm-store/
+.pnpm-debug.log
+
+# React build output
+src/api/static/react/
+.vscode/launch.json
