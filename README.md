@@ -1,51 +1,42 @@
-# For Beginners: The Demo Template
+
+<div style="background: linear-gradient(90deg, #4C1D95 0%, #1E40AF 25%, #0EA5E9 50%, #06B6D4 75%, #87CEEB 100%); padding: 20px 20px; border-radius: 10px; margin: 20px 0;">
+  <h1 style="color: white; text-align: center; margin: 0; font-size: 2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+    For Beginners: An AZD Project
+  </h1>
+  <p style="color: white; text-align: center; margin: 0 0 0 0; font-size: 1em; opacity: 0.9;">
+   A customized "Getting Started with AI Agents" template for learners
+  </p>
+</div>
 
 
 
 > [!IMPORTANT]
-> **THIS REPOSITORY IS CURRENTLY UNDER DEVELOPMENT FOR AN UPCOMING WORKSHOP. Please do not file any issues at this time since the repository will be actively updated for the next few weeks
-> 
+>
+> 🚨 **This repository is under active development and is not meant for public use - yet. This notice will be removed once we hit a stable version (ETA: Oct 17, 2025). Please wait to file issues until that time.**
 
+## For Beginners: Template
 
-> This is a customized version of the [Get Started With AI Agents](https://github.com/nitya/get-started-with-ai-agents) template recommended by Azure AI Foundry. The [original README](./README.azd.md) provides the documentation for the template itself. However _this_ repository contains a [WORKSHOP](./workshop/README.md) resource that will help guide you through setup and experimentation with the template, with a specific view on supporting the [Models For Beginners](https://aka.ms/models-for-beginners), [Model Mondays](https://aka.ms/model-mondays) and related 1P workshops focused on model selection, customization and optimization.
+This project contains a customized version of the official [get-started-with-ai-agents](https://github.com/Azure-Samples/get-started-with-ai-agents/tree/main) starter template for Azure AI Foundry. The objective of this repository is:
 
-## What It Provides
+1. Provide a customized template for our 1P workshops (with Skillable)
+1. Provide a reusable template for our {AZD/Models}-For-Beginners curricula
+1. Maintain stable versions of the template for active events (in branches)
 
-This repository streamlines the _infrastructure setup_ for relevant open-source curricula 
+_We encourage the community to fork and extend this repository for their own Azure AI Foundry workshops or learning journeys - and file issues with bugs or feedback._
 
-This repository provides an actionable templat for delivering open-source curriculum or providing repo-hosted workshops in conjunction with Azure Samples projects, by taking advantage of the built-in GitHub Pages hosting in the source repository. 
+## AZD For Beginners: Workshop
 
-1. The projects will use [Mkdocs Material](https://github.com/squidfunk/mkdocs-material) for the documentation setup
-3. The projects will use [AI Quickstart Templates](https://ai.azure.com/templates) for infrastructure setup
+Not familiar with [AZD templates](https://learn.microsoft.com/azure/developer/azure-developer-cli/azd-templates?tabs=csharp)? Explore the new [AZD For Beginners](https://github.com/microsoft/azd-for-beginners) curriculum for a step-by-step introduction to the [Azure Developer CLI](https://aka.ms/azd) and fundamentals of AZD templates.
 
+This _For Beginners Template_ project also powers the [AZD For AI Developers](https://github.com/microsoft/AZD-for-beginners/tree/main/workshop) workshop that is part of that curriculum. This of this template as a _learning sandbox_ where you can deconstruct a completely functioning template to figure out how it works. Then reconstruct it with your data, and customize it to your specific scenario or requirements!
 
-## How To Use It
+## Related Resources
 
-This template is ideally suited to "For Beginners" projects that have labs that require Azure AI Foundry usage. This template provides learners with the guidance for setting up, configuring, and customizing various aspects of the default Azure AI Foundry quickstart template for AI Agents.
+1. [Azure Developer CLI](https://learn.microsoft.com/azure/developer/azure-developer-cli/) - documentation & reference
+1. [Awesome AZD](https://aka.ms/awesome-azd) - template gallery for Azure
+1. [AI App Templates](https://ai.azure.com/templates) - curated for Azure AI Foundry
+1. [AZD For Beginners](https://github.com/microsoft/azd-for-beginners) - open-source curriculum 
 
-This decouples infrastructure setup from curriculum usage, allowing projects like "Models For Beginners" to focus on lessons and labs that simply expect environment variables set to a pre-deployed infra. This has two benefits:
-
-1. Learners can manually provision infra using Azure AI Foundry portal, CLI or SDK, working through this per lesson, or per curricula.
-1. Learners can use this template to provision infra with azd (using our built-in guidance and extensions) for multiple lessons (or curricula) at one shot.
-
-**The First Testbed for this will be the upcoming Models For Beginners curriculum with emphasis on using the new Foundry Architecture**.
-
-
-## Personas
-
-Each project will adhere to a consistent format for documentation to enhacne the learning experience for AI engineers and beginners alike. We expect three kinds of personas to use these projects, and want to make sure experience is optimized for all
-
-1. **Beginner** - new to the topic - interested in concepts to code.
-2. **Developer** - comfortable with code - interested in tools & techniques.
-3. **AI Engineer** - building intelligent apps - interested in E2E solutions.
-
-## Calls To Action
-
-To complement the journey, we ask each template user to add these three calls to action to their README.md
-
-1. [**Bookmark the Learn Collection** 📚](https://learn.microsoft.com/en-us/collections/7d2wswpx0d02qj) - and use it to discover other resources
-1. [**Join the AI Discord**](https://discord.gg/zxKYvhSnVp) 💬 - connect with experts & builders online around AI!
-1. [**Join the Global AI Community**](https://globalai.community/) - connect with experts & builders in your region!
 
 
 ## Contributing
