@@ -1,0 +1,120 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "${AZURE_ENV_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    "principalId": {
+      "value": "${AZURE_PRINCIPAL_ID}"
+    },
+    "resourceGroupName": {
+      "value": "${AZURE_RESOURCE_GROUP}"
+    },
+    "aiHubName": {
+      "value": "${AZURE_AIHUB_NAME}"
+    },
+    "aiProjectName": {
+      "value": "${AZURE_AIPROJECT_NAME}"
+    },
+    "aiServicesName": {
+      "value": "${AZURE_AISERVICES_NAME}"
+    },
+    "searchServiceName": {
+      "value": "${AZURE_SEARCH_SERVICE_NAME}"
+    },
+    "applicationInsightsName": {
+      "value": "${AZURE_APPLICATION_INSIGHTS_NAME}"
+    },
+    "containerRegistryName": {
+      "value": "${AZURE_CONTAINER_REGISTRY_NAME}"
+    },
+    "keyVaultName": {
+      "value": "${AZURE_KEYVAULT_NAME}"
+    },
+    "storageAccountName": {
+      "value": "${AZURE_STORAGE_ACCOUNT_NAME}"
+    },
+    "logAnalyticsWorkspaceName": {
+      "value": "${AZURE_LOG_ANALYTICS_WORKSPACE_NAME}"
+    },
+    "useContainerRegistry": {
+      "value": "${USE_CONTAINER_REGISTRY=true}"
+    },
+    "useApplicationInsights": {
+      "value": "${USE_APPLICATION_INSIGHTS=true}"
+    },
+    "useSearchService": {
+      "value": "${USE_AZURE_AI_SEARCH_SERVICE=false}"
+    },
+    "agentName": {
+      "value": "${AZURE_AI_AGENT_NAME=agent-template-assistant}"
+    },
+    "aiAgentID": {
+      "value": "${AZURE_AI_AGENT_ID}"
+    },
+    "azureExistingAgentId": {
+      "value": "${AZURE_EXISTING_AGENT_ID}"
+    },
+    "agentDeploymentName": {
+      "value": "${AZURE_AI_AGENT_MODEL_NAME=gpt-4o-mini}"
+    },
+    "agentModelFormat": {
+      "value": "${AZURE_AI_AGENT_MODEL_FORMAT=OpenAI}"
+    },
+    "agentModelName": {
+      "value": "${AZURE_AI_AGENT_MODEL_NAME=gpt-4o-mini}"
+    },
+    "agentModelVersion": {
+      "value": "${AZURE_AI_AGENT_MODEL_VERSION=2024-07-18}"
+    },
+    "agentDeploymentSku": {
+      "value": "${AZURE_AI_AGENT_DEPLOYMENT_SKU=GlobalStandard}"
+    },
+    "agentDeploymentCapacity": {
+      "value": "${AZURE_AI_AGENT_DEPLOYMENT_CAPACITY=80}"
+    },
+    "embeddingDeploymentName": {
+      "value": "${AZURE_AI_EMBED_DEPLOYMENT_NAME=text-embedding-3-small}"
+    },
+    "embedModelFormat": {
+      "value": "${AZURE_AI_EMBED_MODEL_FORMAT=OpenAI}"
+    },
+    "embedModelName": {
+      "value": "${AZURE_AI_EMBED_MODEL_NAME=text-embedding-3-small}"
+    },
+    "embedModelVersion": {
+      "value": "${AZURE_AI_EMBED_MODEL_VERSION=1}"
+    },
+    "embedDeploymentSku": {
+      "value": "${AZURE_AI_EMBED_DEPLOYMENT_SKU=Standard}"
+    },
+    "embedDeploymentCapacity": {
+      "value": "${AZURE_AI_EMBED_DEPLOYMENT_CAPACITY=50}"
+    },
+        "embeddingDeploymentDimensions": {
+      "value": "${AZURE_AI_EMBED_DIMENSIONS=100}"
+    },
+    "apiAppExists": {
+      "value": "${SERVICE_API_RESOURCE_EXISTS=false}"
+    },
+    "azureExistingAIProjectResourceId": {
+      "value": "${AZURE_EXISTING_AIPROJECT_RESOURCE_ID}"
+    },
+    "aiSearchIndexName": {
+      "value": "${AZURE_AI_SEARCH_INDEX_NAME=index_sample}"
+    },
+    "enableAzureMonitorTracing": {
+      "value": "${ENABLE_AZURE_MONITOR_TRACING=false}"
+    },
+    "azureTracingGenAIContentRecordingEnabled": {
+      "value": "${AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED=false}"
+    },
+    "templateValidationMode": {
+      "value": "${TEMPLATE_VALIDATION_MODE=false}"
+    }
+  }
+}
