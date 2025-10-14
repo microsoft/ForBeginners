@@ -137,5 +137,38 @@ else
     print_warning ".azd-setup/src directory not found, skipping editable install"
 fi
 
+# ---------------------
+# Update Bicep File for Key-Based Authentication
+# ---------------------
+
+echo "→ Updating cognitiveservices.bicep for key-based AOAI authentication..."
+
+BICEP_FILE=".azd-setup/infra/core/ai/cognitiveservices.bicep"
+
+if [ -f "$BICEP_FILE" ]; then
+    # 1. Change disableLocalAuth from true to false
+    sed -i 's/param disableLocalAuth bool = true/param disableLocalAuth bool = false/' "$BICEP_FILE"
+    print_success "Updated disableLocalAuth parameter to false"
+    
+    # 2. Change authType from 'AAD' to 'ApiKey' in aiServiceConnection
+    sed -i "/resource aiServiceConnection/,/^}$/ s/authType: 'AAD'/authType: 'ApiKey'/" "$BICEP_FILE"
+    print_success "Updated aiServiceConnection authType to 'ApiKey'"
+    
+    # 3. Add credentials section to aiServiceConnection
+    # First, find the line with metadata and add credentials before it
+    # Create temporary file with proper credentials block
+    sed "/resource aiServiceConnection/,/^}$/ {
+        /metadata: {/ i\\
+    credentials: {\\
+      key: account.listKeys().key1\\
+    }
+    }" "$BICEP_FILE" > "${BICEP_FILE}.tmp" && mv "${BICEP_FILE}.tmp" "$BICEP_FILE"
+    print_success "Added credentials section to aiServiceConnection"
+    
+    print_success "cognitiveservices.bicep updated for key-based AOAI authentication"
+else
+    print_warning "cognitiveservices.bicep file not found at $BICEP_FILE"
+fi
+
 echo ""
-print_success "Setup complete! You can now work with the AI agents template."
+print_success "Setup complete! You can now work with the AI agents template with key-based AOAI authentication."

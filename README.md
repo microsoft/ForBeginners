@@ -16,11 +16,15 @@
 
 ## For Beginners: Template
 
-This project contains a customized version of the official [get-started-with-ai-agents](https://github.com/Azure-Samples/get-started-with-ai-agents/tree/main) starter template for Azure AI Foundry. The objective of this repository is:
+This project contains setup scripts and a customized version of the [get-started-with-ai-agents](https://github.com/Azure-Samples/get-started-with-ai-agents/tree/main) starter template for Azure AI Foundry.
 
-1. Provide a customized template for our 1P workshops (with Skillable)
-1. Provide a reusable template for our {AZD/Models}-For-Beginners curricula
-1. Maintain stable versions of the template for active events (in branches)
+Our objectives are: 
+
+1. Create scripts to customize the base template for our 1P workshops (with Skillable)
+1. Maintain a customized template for reuse in our {AZD/Models}-For-Beginners curricula
+1. Maintain event-specific branches that freeze stable versions for a given workshop.
+
+Note that this means the version of the template here may be different from the base starter template in terms of the default configuration used.
 
 _We encourage the community to fork and extend this repository for their own Azure AI Foundry workshops or learning journeys - and file issues with bugs or feedback._
 

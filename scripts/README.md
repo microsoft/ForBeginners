@@ -50,14 +50,46 @@ Once the `.azure/AI-AGENTS-AZD/.env` is created, specify `AZURE_LOCATION="sweden
 
 #### **Execution**: 
 
-Once the setup is complete, you can deploy:
+Once the setup is complete, change to the template directory:
 
 ```bash
 cd .azd-setup
+```
+
+Then deploy the application and infrastructure in one command:
+
+```bash
 azd up
 ```
 
-### 1.3. Do Customizations
+You may be prompted to log into azd as shown:
+
+```bash
+WARNING: You must be logged into Azure perform this action
+? Would you like to log in now? (Y/n) 
+```
+
+Accept the default "Y" response. This will trigger the device-code based auth flow shown below. You exact code will vary.
+
+```bash
+? Would you like to log in now? Yes
+
+Start by copying the next code: F8X72PR73
+Then press enter and continue to log in from your browser...
+```
+
+Complete the workflow using the Azure account you had logged into for the previous authentication step. Then select the active subscription to use for the deployment (from the provided list). If you had only 1 subscription, it will be selected as a default.
+
+Let the process complete. You should see continuous updates in the console. On completion, you will see a success message like this:
+
+```bash
+SUCCESS: Your up workflow to provision and deploy to Azure completed in 12 minutes 31 seconds.
+```
+
+
+### 1.3. Do More Customization
+
+> 🚨 TODO: This section needs to be tested!! 🚨
 
 First, add any additional models required for the project with 2 steps:
 
@@ -65,12 +97,31 @@ First, add any additional models required for the project with 2 steps:
 1. Run `scripts/0-additional-models` to update azd template with these details
 1. Run `azd provision` to update the infrastructure provisioning
 
-_Note:_ Doing "azd up" will also deploy the app again. If you didn't change the app source code, then azd provision is the best command to minimize overheads.
+_Note:_ 
+
+1. Doing "azd up" will also deploy the app again. If you didn't change the app source code, then azd provision is the best command to minimize overheads.
+1. Some "customizations" may need to be done in the first install (i.e., during setup-azd step) and will not be enforced in subsequent reprovisionins. Read the base template documentation to understand what those constraints are.
 
 
 ### 1.4. Teardown Template
 
-Run this command from the root of repo:
+Once you are done with testing or learning, it is a good idea to tear down the template to reduce costs. There are 2 options:
+
+**Option 1: Delete Infrastructure**
+
+Run this command from the `.azd-setup/` folder from which you did the `azd up` previously. This will delete the resource group and release model quota.
+
+```
+azd down --purge
+```
+
+**Option 2: Delete Infrastructure & Template**
+
+Use this option only if you want to delete the default template in this repository and rebuild a new one using scripts. This is useful for maintainers (pull latest versions of base template) or learners (to understand how scripts work). 
+
+_It is not recommended if you are currently doing a workshop with this repo and need to use the provided custom template version. In that case, use Option 1_.
+
+To use this teardown-everything option, run this command:
 
 ```bash
 ./scripts/3-teardown-azd
