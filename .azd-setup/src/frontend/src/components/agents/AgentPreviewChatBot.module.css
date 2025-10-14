@@ -1,0 +1,141 @@
+.chatContainer {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 100%;
+  height: 100%;
+
+  > div:first-child {
+    overflow-y: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  div[role='feed'] {
+    overflow-y: auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    padding: 8px 12px 0;
+  }
+}
+
+/* When there are messages, make the chat fill the available space */
+.hasMessages {
+  height: 100%;
+}
+
+.emptyChatContainer {
+  height: auto;
+}
+
+.userMessage {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.copilotChatContainer {
+  transform: translateY(0);
+  
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  border-radius: 8px;
+
+  opacity: 1;
+  background-color: var(--colorNeutralBackground3);
+
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Transition for empty state to messages state */
+.emptyChatContainer + div div:empty + .inputContainer,
+.emptyChatContainer + .copilotChatContainer {
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
+
+
+.inputContainer {
+  /* TODO: File an issue with Fluent team to allow for a safer override of the input box styles, or figure out a better approach to customize the chat input box styles */
+  > div:first-child > div:first-child {
+    padding: 12px 12px 6px;
+    border: none;
+    background-color: var(--colorNeutralBackground3);
+  }
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 2rem;
+  color: var(--colorNeutralForeground2);
+  flex: 1;
+}
+
+.emptyState h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--colorNeutralForeground1);
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.emptyStateAgentIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--colorNeutralBackground3);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.avatarImage {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.copilotChatMessage {
+  display: flex;
+  margin: 0 16px;
+  padding: 4px 0;
+}
+
+/* Transition for empty state to messages state */
+.emptyChatContainer .copilotChatContainer,
+.hasMessages .copilotChatContainer {
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
+}
