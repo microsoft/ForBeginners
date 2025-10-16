@@ -48,15 +48,6 @@ These dependencies are installed conditionally only after the template is set up
 #### **Recommendation**: 
 Once the `.azure/AI-AGENTS-AZD/.env` is created, specify `AZURE_LOCATION="swedencentral"` proactively to have it pick up that location. This may not always show as an option if run using default `azd up`
 
-### **Additional Models**
-The azd template can be extended to support additional model deployments beyond the default GPT-4o-mini and text-embedding-3-small models. This section explains how to add custom model deployments using a Bicep parameter array approach.
-
-Use the provided script to automatically apply these changes:
-
-```bash
-./scripts/0-additional-models
-```
-
 #### **Execution**: 
 
 Once the setup is complete, change to the template directory:
@@ -68,7 +59,7 @@ cd .azd-setup
 Then deploy the application and infrastructure in one command:
 
 ```bash
-azd provision
+azd up
 ```
 
 You may be prompted to log into azd as shown:
