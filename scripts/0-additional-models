@@ -15,13 +15,13 @@ NC='\033[0m' # No Color
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$DIR/.."
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 INFRA_DIR="$REPO_ROOT/.azd-setup/infra"
 CONFIG_FILE="$SCRIPT_DIR/0-additional-models.json"
 MAIN_BICEP="$INFRA_DIR/main.bicep"
 PARAMS_FILE="$INFRA_DIR/main.parameters.json"
 
-echo -e "${BLUE}=== Adding Additional Model Deployments ===${NC}"
+echo -e '${BLUE}=== Adding Additional Model Deployments ===${NC}'
 
 # Check if configuration file exists
 if [[ ! -f "$CONFIG_FILE" ]]; then
@@ -34,6 +34,17 @@ fi
 if [[ ! -d "$INFRA_DIR" ]]; then
     echo -e "${RED}Error: Infrastructure directory not found: $INFRA_DIR${NC}"
     echo "Please run './scripts/2-setup-azd' first to set up the infrastructure template."
+    exit 1
+fi
+
+# Check if required files exist
+if [[ ! -f "$MAIN_BICEP" ]]; then
+    echo -e "${RED}Error: main.bicep not found: $MAIN_BICEP${NC}"
+    exit 1
+fi
+
+if [[ ! -f "$PARAMS_FILE" ]]; then
+    echo -e "${RED}Error: main.parameters.json not found: $PARAMS_FILE${NC}"
     exit 1
 fi
 
@@ -105,52 +116,25 @@ fi
 # Step 3: Add parameter to main.parameters.json
 echo -e "${YELLOW}Step 3: Adding parameter to main.parameters.json...${NC}"
 if grep -q "additionalModelDeployments" "$PARAMS_FILE"; then
-    echo -e "${GREEN}✓ Parameter already exists in main.parameters.json${NC}"
-else
-    # Add the parameter before the closing brace
+    echo -e "${YELLOW}Parameter already exists in main.parameters.json, updating with new models...${NC}"
+    # Update existing parameter with the models from config file
     TEMP_FILE=$(mktemp)
-    jq '. + {
-        "parameters": (.parameters + {
-            "additionalModelDeployments": {
-                "value": "${ADDITIONAL_MODEL_DEPLOYMENTS=[]}"
-            }
-        })
-    }' "$PARAMS_FILE" > "$TEMP_FILE"
+    jq --argjson models "$ADDITIONAL_MODELS" '.parameters.additionalModelDeployments.value = $models' "$PARAMS_FILE" > "$TEMP_FILE"
     mv "$TEMP_FILE" "$PARAMS_FILE"
-    echo -e "${GREEN}✓ Added parameter to main.parameters.json${NC}"
-fi
-
-# Step 4: Set environment variable for azd
-echo -e "${YELLOW}Step 4: Setting up environment variable...${NC}"
-ENV_FILE="$REPO_ROOT/.azd-setup/.azure/AI-AGENTS-AZD/.env"
-
-if [[ -f "$ENV_FILE" ]]; then
-    # Convert JSON to string format for environment variable
-    MODELS_ENV_VALUE=$(echo "$ADDITIONAL_MODELS" | jq -c .)
-    
-    # Check if the environment variable already exists
-    if grep -q "^ADDITIONAL_MODEL_DEPLOYMENTS=" "$ENV_FILE"; then
-        # Update existing value
-        sed -i "s|^ADDITIONAL_MODEL_DEPLOYMENTS=.*|ADDITIONAL_MODEL_DEPLOYMENTS='$MODELS_ENV_VALUE'|" "$ENV_FILE"
-        echo -e "${GREEN}✓ Updated ADDITIONAL_MODEL_DEPLOYMENTS in .env file${NC}"
-    else
-        # Add new environment variable
-        echo "" >> "$ENV_FILE"
-        echo "# Additional model deployments" >> "$ENV_FILE"
-        echo "ADDITIONAL_MODEL_DEPLOYMENTS='$MODELS_ENV_VALUE'" >> "$ENV_FILE"
-        echo -e "${GREEN}✓ Added ADDITIONAL_MODEL_DEPLOYMENTS to .env file${NC}"
-    fi
+    echo -e "${GREEN}✓ Updated additionalModelDeployments parameter with models${NC}"
 else
-    echo -e "${YELLOW}⚠ Environment file not found: $ENV_FILE${NC}"
-    echo -e "${YELLOW}  The environment variable will need to be set manually or after running 'azd up'${NC}"
+    # Add the parameter with the models from config file
+    TEMP_FILE=$(mktemp)
+    jq --argjson models "$ADDITIONAL_MODELS" '.parameters.additionalModelDeployments = {"value": $models}' "$PARAMS_FILE" > "$TEMP_FILE"
+    mv "$TEMP_FILE" "$PARAMS_FILE"
+    echo -e "${GREEN}✓ Added additionalModelDeployments parameter to main.parameters.json${NC}"
 fi
 
 echo -e "${GREEN}=== Additional Model Deployments Setup Complete ===${NC}"
 echo ""
 echo -e "${BLUE}Next Steps:${NC}"
 echo "1. Review the changes made to the infrastructure files"
-echo "2. Navigate to the .azd-setup directory: cd .azd-setup"
-echo "3. Run 'azd provision' to deploy the additional models"
+echo "2. Run 'azd up' from the project root to deploy the additional models"
 echo ""
 echo -e "${BLUE}Models that will be deployed:${NC}"
 echo "$ADDITIONAL_MODELS" | jq -r '.[] | "  • \(.name) - \(.model.name) \(.model.version) (Capacity: \(.sku.capacity))"'
