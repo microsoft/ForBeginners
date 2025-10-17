@@ -119,30 +119,6 @@
     "additionalModelDeployments": {
       "value": [
         {
-          "name": "model-router",
-          "model": {
-            "format": "OpenAI",
-            "name": "model-router",
-            "version": "2025-05-19"
-          },
-          "sku": {
-            "name": "GlobalStandard",
-            "capacity": 50
-          }
-        },
-        {
-          "name": "gpt-4.1",
-          "model": {
-            "format": "OpenAI",
-            "name": "gpt-4.1",
-            "version": "2025-04-14"
-          },
-          "sku": {
-            "name": "GlobalStandard",
-            "capacity": 50
-          }
-        },
-        {
           "name": "gpt-4o",
           "model": {
             "format": "OpenAI",
