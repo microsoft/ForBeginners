@@ -108,8 +108,9 @@ param embedDeploymentCapacity int = 30
 param additionalModelDeployments array = []
 
 param useApplicationInsights bool = true
+
 @description('Do we want to use the Azure AI Search')
-param useSearchService bool = false
+param useSearchService bool = true
 
 @description('Do we want to use the Azure Monitor tracing')
 param enableAzureMonitorTracing bool = false
