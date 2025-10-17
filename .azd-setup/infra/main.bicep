@@ -435,7 +435,6 @@ output AZURE_CONTAINER_REGISTRY_NAME string = containerApps.outputs.registryName
 output SERVICE_API_IDENTITY_PRINCIPAL_ID string = api.outputs.SERVICE_API_IDENTITY_PRINCIPAL_ID
 output SERVICE_API_NAME string = api.outputs.SERVICE_API_NAME
 output SERVICE_API_URI string = api.outputs.SERVICE_API_URI
-output SERVICE_API_IMAGE_NAME string = api.outputs.SERVICE_API_IMAGE_NAME
 
 // AI outputs  
 output AZURE_OPENAI_MODEL string = !empty(azureExistingAIProjectResourceId) ? '' : ai!.outputs.aiServicesName
@@ -461,9 +460,6 @@ output AZURE_SEARCH_INDEX_NAME string = aiSearchIndexName
 output AZURE_LOG_ANALYTICS_WORKSPACE_NAME string = empty(azureExistingAIProjectResourceId)
   ? ai!.outputs.logAnalyticsWorkspaceName
   : logAnalytics!.outputs.name
-output APPLICATIONINSIGHTS_CONNECTION_STRING string = !useApplicationInsights
-  ? ''
-  : empty(azureExistingAIProjectResourceId) ? ai!.outputs.applicationInsightsConnectionString : ''
   
 // Tracing and monitoring
 output AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED bool = azureTracingGenAIContentRecordingEnabled
