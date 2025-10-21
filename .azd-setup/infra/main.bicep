@@ -97,7 +97,7 @@ param embeddingDeploymentDimensions string = '100'
 param embedModelVersion string = '1'
 
 @description('Sku of the embeddings model deployment')
-param embedDeploymentSku string = 'Standard'
+param embedDeploymentSku string = 'GlobalStandard'
 
 @description('Capacity of the embedding deployment')
 // You can increase this, but capacity is limited per model/region, so you will get errors if you go over
