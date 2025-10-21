@@ -236,7 +236,7 @@
     },
     "embedDeploymentSku": {
       "type": "string",
-      "defaultValue": "Standard",
+      "defaultValue": "GlobalStandard",
       "metadata": {
         "description": "Sku of the embeddings model deployment"
       }
