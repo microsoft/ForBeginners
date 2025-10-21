@@ -90,7 +90,7 @@
       "value": "${AZURE_AI_EMBED_MODEL_VERSION=1}"
     },
     "embedDeploymentSku": {
-      "value": "${AZURE_AI_EMBED_DEPLOYMENT_SKU=Standard}"
+      "value": "${AZURE_AI_EMBED_DEPLOYMENT_SKU=GlobalStandard}"
     },
     "embedDeploymentCapacity": {
       "value": "${AZURE_AI_EMBED_DEPLOYMENT_CAPACITY=50}"

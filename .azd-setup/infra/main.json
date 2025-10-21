@@ -2662,7 +2662,7 @@
                                 "model": "[parameters('deployments')[copyIndex()].model]",
                                 "raiPolicyName": "[if(contains(parameters('deployments')[copyIndex()], 'raiPolicyName'), parameters('deployments')[copyIndex()].raiPolicyName, null())]"
                               },
-                              "sku": "[if(contains(parameters('deployments')[copyIndex()], 'sku'), parameters('deployments')[copyIndex()].sku, createObject('name', 'Standard', 'capacity', 20))]",
+                              "sku": "[if(contains(parameters('deployments')[copyIndex()], 'sku'), parameters('deployments')[copyIndex()].sku, createObject('name', 'GlobalStandard', 'capacity', 20))]",
                               "dependsOn": [
                                 "[resourceId('Microsoft.CognitiveServices/accounts', parameters('name'))]"
                               ]
