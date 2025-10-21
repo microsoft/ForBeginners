@@ -123,7 +123,7 @@ resource aiServicesDeployments 'Microsoft.CognitiveServices/accounts/deployments
     raiPolicyName: contains(deployment, 'raiPolicyName') ? deployment.raiPolicyName : null
   }
   sku: contains(deployment, 'sku') ? deployment.sku : {
-    name: 'Standard'
+    name: 'GlobalStandard'
     capacity: 20
   }
 }]
