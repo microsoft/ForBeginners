@@ -48,7 +48,7 @@
       "value": "${USE_APPLICATION_INSIGHTS=true}"
     },
     "useSearchService": {
-      "value": "${USE_AZURE_AI_SEARCH_SERVICE=false}"
+      "value": "${USE_AZURE_AI_SEARCH_SERVICE=true}"
     },
     "agentName": {
       "value": "${AZURE_AI_AGENT_NAME=agent-template-assistant}"
@@ -108,10 +108,10 @@
       "value": "${AZURE_AI_SEARCH_INDEX_NAME=index_sample}"
     },
     "enableAzureMonitorTracing": {
-      "value": "${ENABLE_AZURE_MONITOR_TRACING=false}"
+      "value": "${ENABLE_AZURE_MONITOR_TRACING=true}"
     },
     "azureTracingGenAIContentRecordingEnabled": {
-      "value": "${AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED=false}"
+      "value": "${AZURE_TRACING_GEN_AI_CONTENT_RECORDING_ENABLED=true}"
     },
     "templateValidationMode": {
       "value": "${TEMPLATE_VALIDATION_MODE=false}"
