@@ -18,6 +18,7 @@ if ($Errors -gt 0) {
 }
 
 # --- Set Resource Names Based on LAB_INSTANCE_ID ---
+# In Skillable labs, set this using: $env:LAB_INSTANCE_ID = "@Lab.LabInstance.Id"
 $LAB_INSTANCE_ID = [System.Environment]::GetEnvironmentVariable('LAB_INSTANCE_ID', "Process")
 
 if (-not [string]::IsNullOrEmpty($LAB_INSTANCE_ID)) {

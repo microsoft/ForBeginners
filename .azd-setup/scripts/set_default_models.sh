@@ -23,6 +23,7 @@ if [ "$Errors" -gt 0 ]; then
 fi
 
 # --- Set Resource Names Based on LAB_INSTANCE_ID ---
+# In Skillable labs, set this using: export LAB_INSTANCE_ID=@Lab.LabInstance.Id
 LAB_INSTANCE_ID="${LAB_INSTANCE_ID}"
 
 if [ -n "$LAB_INSTANCE_ID" ]; then
