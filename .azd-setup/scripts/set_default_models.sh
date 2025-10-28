@@ -22,6 +22,65 @@ if [ "$Errors" -gt 0 ]; then
     exit 1
 fi
 
+# --- Set Resource Names Based on LAB_INSTANCE_ID ---
+LAB_INSTANCE_ID="${LAB_INSTANCE_ID}"
+
+if [ -n "$LAB_INSTANCE_ID" ]; then
+    echo ""
+    echo "📋 Lab Instance ID detected: $LAB_INSTANCE_ID"
+    echo "🔧 Setting unique resource names for lab environment..."
+    
+    # Sanitize LAB_INSTANCE_ID (remove special characters, convert to lowercase)
+    LAB_INSTANCE_ID=$(echo "$LAB_INSTANCE_ID" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]//g')
+    
+    # Set resource names with LAB_INSTANCE_ID suffix
+    # Note: Azure resource names have specific character limits and naming rules
+    
+    # AI Services (Azure OpenAI) - max 64 chars, alphanumerics and hyphens
+    azd env set AZURE_AISERVICES_NAME "aoai-${LAB_INSTANCE_ID}"
+    
+    # AI Hub - max 260 chars
+    azd env set AZURE_AIHUB_NAME "hub-${LAB_INSTANCE_ID}"
+    
+    # AI Project - max 260 chars
+    azd env set AZURE_AIPROJECT_NAME "project-${LAB_INSTANCE_ID}"
+    
+    # Search Service - 2-60 chars, lowercase letters, digits, and hyphens
+    azd env set AZURE_SEARCH_SERVICE_NAME "search-${LAB_INSTANCE_ID}"
+    
+    # Application Insights - max 260 chars
+    azd env set AZURE_APPLICATION_INSIGHTS_NAME "appi-${LAB_INSTANCE_ID}"
+    
+    # Container Registry - 5-50 chars, alphanumerics only (no hyphens)
+    REGISTRY_NAME="acr${LAB_INSTANCE_ID}"
+    azd env set AZURE_CONTAINER_REGISTRY_NAME "$REGISTRY_NAME"
+    
+    # Key Vault - 3-24 chars, alphanumerics and hyphens
+    KV_NAME="kv-${LAB_INSTANCE_ID}"
+    # Truncate if too long (Key Vault has a 24 char limit)
+    if [ ${#KV_NAME} -gt 24 ]; then
+        KV_NAME="${KV_NAME:0:24}"
+    fi
+    azd env set AZURE_KEYVAULT_NAME "$KV_NAME"
+    
+    # Storage Account - 3-24 chars, lowercase letters and numbers only (no hyphens)
+    STORAGE_NAME="st${LAB_INSTANCE_ID}"
+    # Truncate if too long
+    if [ ${#STORAGE_NAME} -gt 24 ]; then
+        STORAGE_NAME="${STORAGE_NAME:0:24}"
+    fi
+    azd env set AZURE_STORAGE_ACCOUNT_NAME "$STORAGE_NAME"
+    
+    # Log Analytics Workspace - max 260 chars
+    azd env set AZURE_LOG_ANALYTICS_WORKSPACE_NAME "log-${LAB_INSTANCE_ID}"
+    
+    # Resource Group - max 90 chars
+    azd env set AZURE_RESOURCE_GROUP "rg-${LAB_INSTANCE_ID}"
+    
+    echo "✅ Resource names configured with Lab Instance ID: $LAB_INSTANCE_ID"
+    echo ""
+fi
+
 # --- Default Values ---
 declare -A defaultEnvVars=(
     [AZURE_AI_EMBED_DEPLOYMENT_NAME]="text-embedding-3-small"
