@@ -70,8 +70,14 @@ echo "→ Initializing AI agents template..."
 
 cd .azd-setup
 
+# Prompt user for branch name
+read -p "Enter branch name (default: main): " TEMPLATE_BRANCH
+TEMPLATE_BRANCH=${TEMPLATE_BRANCH:-main}
+
+print_success "Using branch: $TEMPLATE_BRANCH"
+
 # Initialize with the AI agents template using AI-AGENTS-AZD as environment name
-azd init -t get-started-with-ai-agents -e AI-AGENTS-AZD
+azd init -t get-started-with-ai-agents -b "$TEMPLATE_BRANCH" -e AI-AGENTS-AZD
 
 print_success "AI agents template initialized successfully with environment: AI-AGENTS-AZD"
 
