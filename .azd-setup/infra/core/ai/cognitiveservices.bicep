@@ -5,7 +5,7 @@ param location string = resourceGroup().location
 param tags object = {}
 @description('The custom subdomain name used to access the API. Defaults to the value of the name parameter.')
 param customSubDomainName string = aiServiceName
-param disableLocalAuth bool = false
+param disableLocalAuth bool = true
 param deployments array = []
 param appInsightsId string
 param appInsightConnectionString string
@@ -13,6 +13,7 @@ param appInsightConnectionName string
 param aoaiConnectionName string
 param storageAccountId string
 param storageAccountConnectionName string
+param storageAccountBlobEndpoint string
 
 @allowed([ 'Enabled', 'Disabled' ])
 param publicNetworkAccess string = 'Enabled'
@@ -51,12 +52,9 @@ resource aiServiceConnection 'Microsoft.CognitiveServices/accounts/connections@2
   parent: account
   properties: {
     category: 'AzureOpenAI'
-    authType: 'ApiKey'
+    authType: 'AAD'
     isSharedToAll: true
     target: account.properties.endpoints['OpenAI Language Model Instance API']
-    credentials: {
-      key: account.listKeys().key1
-    }
     metadata: {
       ApiType: 'azure'
       ResourceId: account.id
@@ -90,7 +88,7 @@ resource storageAccountConnection 'Microsoft.CognitiveServices/accounts/connecti
   parent: account
   properties: {
     category: 'AzureStorageAccount'
-    target: storageAccountId
+    target: storageAccountBlobEndpoint
     authType: 'AAD'
     isSharedToAll: true    
     metadata: {
