@@ -11,11 +11,8 @@ param environmentName string
 // If using different models, update the SKU,capacity depending on the model you use.
 // https://learn.microsoft.com/azure/ai-services/agents/concepts/model-region-support
 @allowed([
-  'eastus'
   'eastus2'
   'swedencentral'
-  'westus'
-  'westus3'
 ])
 @metadata({
   azd: {

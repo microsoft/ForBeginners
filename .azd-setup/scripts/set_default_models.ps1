@@ -27,7 +27,7 @@ if (-not [string]::IsNullOrEmpty($LAB_INSTANCE_ID)) {
     Write-Host "🔧 Setting unique resource names for lab environment..." -ForegroundColor Cyan
     
     # Sanitize LAB_INSTANCE_ID (remove special characters, convert to lowercase)
-    $LAB_INSTANCE_ID = $LAB_INSTANCE_ID.ToLower() -replace '[^a-z0-9]', ''
+    # $LAB_INSTANCE_ID = $LAB_INSTANCE_ID.ToLower() -replace '[^a-z0-9]', ''
     
     # Set resource names with LAB_INSTANCE_ID suffix
     # Note: Azure resource names have specific character limits and naming rules

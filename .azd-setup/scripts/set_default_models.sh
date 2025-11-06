@@ -32,7 +32,7 @@ if [ -n "$LAB_INSTANCE_ID" ]; then
     echo "🔧 Setting unique resource names for lab environment..."
     
     # Sanitize LAB_INSTANCE_ID (remove special characters, convert to lowercase)
-    LAB_INSTANCE_ID=$(echo "$LAB_INSTANCE_ID" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]//g')
+    # LAB_INSTANCE_ID=$(echo "$LAB_INSTANCE_ID" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]//g')
     
     # Set resource names with LAB_INSTANCE_ID suffix
     # Note: Azure resource names have specific character limits and naming rules
