@@ -9,13 +9,17 @@ This is a **4-hour** instructor-led workshop session at Microsoft Ignite 2025. B
 
 ## 1. Lab Instructions
 
-**Instructions Link:** ++[PREL13 README](https://github.com/microsoft/ignite25-PREL13-observe-manage-and-scale-agentic-ai-apps-with-azure-ai-foundry)++
+**Project Repo:** ++https://aka.ms/ignite25/preday++
 
-Open a new private browser in your workstation. 
+The lab guide and code exercises are available in the repository above. To get started, open a new private browser in your workstation. :
 
-1. Copy the instructions link to the browser and navigate to it.
-1. In the "Before You Begin" section, **Select the Microsoft AI Tour tab**
-1. Leave this browser open and follow the instructions for the lab.
+1. To get started, head over tho ++https://aka.ms/ignite25/PREL13++
+1. Log into GitHub with a personal profile - create one if needed.
+1. Wait till Codespaces is ready - you should see an active VS Code terminal.
+1. Run this command in terminal - ++mkdocs serve > /dev/null 2>&1 &++
+1. Confirm "open in browser" pop-up - you will see an interactive guide in the browser!
+1. Leave this browser open and follow the instructions in that guide.
+
 
 ## 2. Azure Credentials
 
@@ -49,38 +53,3 @@ By the end of this workshop, you will have a copy of the sample app in your pers
 1. Then continue working through the lab steps there.
 
 ---
-
-<!--
-
-
-To begin, log into the virtual machine using the following credentials: +++@lab.VirtualMachine(Win11-Pro-Base).Password+++
-
-**Note:** Text formatted as an +++example+++ represents type text. Clicking on this text will automatically insert it to prevent any typing errors.
-
-To edit the lab manual, click the hamburger menu in the top-right corner and select **"Edit Instructions"**. This will open the editor where you can modify the instructions.
-
-Instructions are written in Markdown. For detailed guidance on syntax, please refer to the following documentation:
-
-[Creating Instructions with Markdown Syntax](https://docs.skillable.com/docs/creating-instructions-with-markdown-syntax)
-
-If you want to manage your instructions outside of Skillable Studio like Github, please refer to the following documentation:
-
-[Manage Instructions Outside of Studio](https://docs.skillable.com/docs/manage-instructions-outside-of-studio)
-
-For saving changes made to the virtual machine, please refer to this guide:  
-
-[Committing Changes to a Virtual Machine](https://docs.skillable.com/docs/committing-changes-to-a-lab)
-
-**Note:** When prompted, select **"Commit my changes and update this lab profile"** to ensure your changes are saved.
-
-Changes made to the virtual machine will take effect immediately after committing. You may restart the lab instance if you wish to view these changes.
-
-**Note:** Changes to the instructions will be saved automatically, so the commit process applies only to modifications to the virtual machine.
-
-Should you require any assistance, feel free to contact us.
-
-**Please remove this message once it is no longer needed.**
-
----
-
--->
