@@ -2,9 +2,9 @@
 # TODO: do we need hooks? 
 # TODO: do we need all of the variables?
 
-name: azd-get-started-with-ai-agents
+name: for-beginners-azd-template
 metadata:
-  template: azd-get-started-with-ai-agents@1.0.2
+  template: azd-get-started-with-ai-agents@1.0.4
 requiredVersions:
   azd: ">=1.14.0"
 
