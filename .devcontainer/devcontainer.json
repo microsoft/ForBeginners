@@ -39,7 +39,7 @@
 				
 				// Azure development tools
 				"ms-vscode.azure-repos",                      // Azure DevOps repository integration
-				"ms-azure-devtools.vscode-azurecli"           // Azure CLI commands and IntelliSense
+				"ms-vscode.azurecli"           				  // Azure CLI commands and IntelliSense
 			]
 		}
 	}
