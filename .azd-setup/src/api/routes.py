@@ -220,7 +220,7 @@ async def get_result(
                         logger.debug("Event received but no data to yield")
         except Exception as e:
             logger.exception(f"Exception in get_result: {e}")
-            yield serialize_sse_event({'type': "error", 'message': str(e)})
+            yield serialize_sse_event({'type': "error", 'message': "An internal error has occurred."})
 
 
 @router.get("/chat/history")
